@@ -25,6 +25,17 @@ export function packageNameFilter(val) {
     .join('-');
 }
 
+export function validateTemplateOption(templateChoice) {
+  const allowedTemplates = Object.keys(TemplateTypes).map((key) => key.toLowerCase());
+  const templateType = TemplateTypes[templateChoice.toUpperCase()];
+  if (templateType) {
+    return templateType;
+  }
+  throw new Error(
+    `'${templateChoice}' is an invalid template choice. Valid templates: ${allowedTemplates.join(' or ')}`
+  );
+}
+
 export async function packageAuthor() {
   const userInfo = (await getGitUserInfo()) || {};
   const { name: gitUserName = 'REI', email: gitEmail = '' } = userInfo;

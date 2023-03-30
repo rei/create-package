@@ -6,6 +6,7 @@ import {
   packageAuthor,
   TemplateTypes,
   packageNameFilter,
+  validateTemplateOption,
 } from '../src/util.mjs';
 import { createPackage } from '../src/api.mjs';
 
@@ -32,7 +33,7 @@ program
     Defaults.PACKAGE_DESC
   )
   .option('-a, --author <author-name>', 'package author')
-  .option('-t, --template <vue|vanilla>', 'package template', TemplateTypes.VUE)
+  .option('-t, --template [vue|vanilla]', 'package template', TemplateTypes.VUE)
   .option(
     '-dir, --directory',
     'create namespaced directory',
@@ -51,7 +52,7 @@ program
         packageName: packageNameFilter(name),
         packageDescription: desc,
         packageAuthor: author,
-        packageTemplate: template,
+        packageTemplate: validateTemplateOption(template),
         namespaceDir: directory,
       },
     });

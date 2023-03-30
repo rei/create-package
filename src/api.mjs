@@ -86,20 +86,32 @@ async function generate({
 }
 
 /**
- * Handles installing the NPM deps and launching the vite
- * development server for the newly created Vue 3 component
+ * Launching the vite development server for the newly created Vue 3 component
  *
  * @param {*} PACKAGE_WORKING_DIR
  */
 async function runComponent(PACKAGE_WORKING_DIR) {
   try {
     process.chdir(PACKAGE_WORKING_DIR);
+    logger.info('Booting up the Vite development server');
+    await run('npm run dev');
+  } catch (error) {
+    logger.warn(error);
+  }
+}
+
+/**
+ * Handles installing the NPM deps
+ *
+ * @param {*} PACKAGE_WORKING_DIR
+ */
+async function install(PACKAGE_WORKING_DIR) {
+  try {
+    process.chdir(PACKAGE_WORKING_DIR);
     logger.info(
       `Running \`npm i\` in ${PACKAGE_WORKING_DIR}. This will take a moment...`
     );
     await run('npm i');
-    logger.info('Booting up the Vite development server');
-    await run('npm run dev');
   } catch (error) {
     logger.warn(error);
   }
@@ -159,10 +171,18 @@ export async function createPackage({ answers = {} }) {
         camelComponentName,
       },
     });
-
+    await install(PACKAGE_WORKING_DIR);
     await runComponent(PACKAGE_WORKING_DIR);
   } else if (packageTemplate === TemplateTypes.VANILLA) {
-    logger.info('Vanilla JS library');
-    // do something
+    await generate({
+      walkPath: TemplatePaths.VANILLA,
+      packageTemplate,
+      packageWorkingDir: PACKAGE_WORKING_DIR,
+      data: {
+        ...CONFIG,
+        ...answers,
+      },
+    });
+    await install(PACKAGE_WORKING_DIR);
   }
 }

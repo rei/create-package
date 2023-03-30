@@ -16,33 +16,26 @@
     "style": "./dist/style.css",
     "files": [
       "dist",
-      "src/style"
+      "src"
     ],
     "license": "UNLICENSED",
     "scripts": {
       "dev": "vite --open",
-      "lint": "eslint --ext .js,.mjs,.vue src",
+      "lint": "eslint --ext .js,.mjs src",
       "prepare": "npm-run-all -p lint test build",
       "build": "vite build",
       "test": "npm run unit -- --coverage",
       "unit": "vitest run"
     },
     "dependencies": {
-      "@rei/cdr-tokens": "^11",
       "@rei/vite-base-config": "^3.0.0"
     },
-    "peerDependencies": {
-      "@rei/cedar": "^13",
-      "vue": "^3"
-    },
     "devDependencies": {
-      "@vue/test-utils": "^2.0.0",
       "babel-plugin-istanbul": "^6.0.0",
       "c8": "^7.11.3",
       "eslint": "^8.16.0",
       "eslint-config-airbnb-base": "^15.0.0",
       "eslint-plugin-import": "^2.26.0",
-      "eslint-plugin-vue": "^9.1.0",
       "jsdom": "^19.0.0",
       "npm-run-all": "^4.1.5",
       "vite": "^4.0.0",
