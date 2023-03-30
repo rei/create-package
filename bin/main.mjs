@@ -4,7 +4,6 @@ import interactive from './interactive.mjs';
 import {
   Defaults,
   packageAuthor,
-  TemplateTypes,
   packageNameFilter,
   validateTemplateOption,
 } from '../src/util.mjs';
@@ -33,7 +32,7 @@ program
     Defaults.PACKAGE_DESC
   )
   .option('-a, --author <author-name>', 'package author')
-  .option('-t, --template [vue|vanilla]', 'package template', TemplateTypes.VUE)
+  .option('-t, --template [vue|vanilla]', 'package template', Defaults.PACKAGE_TEMPLATE)
   .option(
     '-dir, --directory',
     'create namespaced directory',

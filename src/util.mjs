@@ -15,6 +15,7 @@ export const Defaults = {
   PACKAGE_DESC: 'description',
   PACKAGE_AUTHOR: 'REI',
   PACKAGE_NAMESPACE: true,
+  PACKAGE_TEMPLATE: 'VUE', // Should map to TemplateTypes
 };
 
 export function packageNameFilter(val) {
