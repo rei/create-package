@@ -1,0 +1,30 @@
+{
+    "extends": ["airbnb-base"],
+    "globals": {
+      "expect": true
+    },
+    "env": {
+      "node": true
+    },
+    "rules": {
+      "import/extensions": "off",
+      "comma-dangle": [
+        "error",
+        {
+          "arrays": "always-multiline",
+          "objects": "always-multiline",
+          "imports": "always-multiline",
+          "exports": "always-multiline",
+          "functions": "ignore"
+        }
+      ]
+    },
+    "settings": {
+      "import/resolver": {
+        "node": { "paths": "./src" }
+      }
+    },
+    "parserOptions": {
+      "ecmaVersion": 2020
+    }
+  }
