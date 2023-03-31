@@ -12,7 +12,7 @@ Report bugs in the [issues](https://github.com/rei/create-package/issues) tab.
 npx @rei/create-package
 ```
 
-<img src='https://www.rei.com/satchel/media/img/rei-create-package.gif' width='600' alt='npm start'>
+<img src='https://www.rei.com/satchel/media/img/rei-create-package.gif' alt='npx @rei/create-package'>
 
 ## CLI
 
