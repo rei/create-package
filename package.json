@@ -1,6 +1,6 @@
 {
   "name": "@rei/create-package",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "An NPM initializer that scaffolds new NPM packages",
   "main": "bin/main.mjs",
   "scripts": {
@@ -12,6 +12,8 @@
     "src",
     "bin",
     "templates",
+    "templates/common/.npmrc",
+    "templates/common/.gitignore",
     ".env"
   ],
   "author": "REI",
