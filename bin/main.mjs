@@ -34,14 +34,13 @@ program
   .option('-a, --author <author-name>', 'package author')
   .option('-t, --template [vue|vanilla]', 'package template', Defaults.PACKAGE_TEMPLATE)
   .option(
-    '-dir, --directory',
-    'create namespaced directory',
-    Defaults.PACKAGE_NAMESPACE
+    '--no-dir',
+    'Output to the current working directory',
   )
   .action(async (answers) => {
     let { author } = answers;
     const {
-      name, desc, template, directory,
+      name, desc, template, dir,
     } = answers;
     if (!author) {
       author = await packageAuthor();
@@ -52,7 +51,7 @@ program
         packageDescription: desc,
         packageAuthor: author,
         packageTemplate: validateTemplateOption(template),
-        namespaceDir: directory,
+        namespacedDir: dir,
       },
     });
   });

@@ -43,15 +43,6 @@ export default async function interactive() {
         default: TemplateTypes.VUE,
         choices: [TemplateTypes.VUE, TemplateTypes.VANILLA],
       },
-      // {
-      //   type: 'confirm',
-      //   name: 'packageCustomerFacing',
-      //   message: `Is your ${TemplateTypes.VANILLA} customer facing?`,
-      //   default: true,
-      //   when(answerObj) {
-      //     return answerObj.packageTemplate === TemplateTypes.VANILLA;
-      //   },
-      // },
       {
         type: 'confirm',
         name: 'namespacedDir',
