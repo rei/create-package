@@ -1,5 +1,9 @@
 # Release notes
 
+## 1.0.2
+
+Adds screencast to `README.md`
+
 ## 1.0.1
 
 ### Bug Fixes
