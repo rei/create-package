@@ -11,7 +11,8 @@
   "files": [
     "src",
     "bin",
-    "templates"
+    "templates",
+    ".env"
   ],
   "author": "REI",
   "license": "UNLICENSED",

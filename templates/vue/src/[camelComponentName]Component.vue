@@ -35,7 +35,7 @@
         This component is configured to use <code>@rei/vite-base-config</code>,
         which is an Alpine Front-end supported Vite configuration. The config
         contains appropriate plugins, polyfills, and build settings required for
-        REI's needs. We use Vite to build this component into a distrutable
+        REI's needs. We use Vite to build this component into a distributable
         library that can be consumed in larger Vue applications.
       </cdr-text>
       <cdr-text>
