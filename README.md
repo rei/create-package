@@ -68,7 +68,7 @@ Using this option will tell the initializer to output to the current working dir
 
 Its mechanics are written to be agnostic of any particular technology's generator. Meaning it doesn't rely on [Vue CLI](https://cli.vuejs.org/) or anything similar.
 
-The logic recurses through the chosen template files and uses a [template system](https://www.npmjs.com/package/mustache) to inject contextual data into outputted projects.
+The logic recurses through the chosen template files and uses a [template system](https://www.npmjs.com/package/mustache) to inject contextual data into them.
 
 ### Templates
 
