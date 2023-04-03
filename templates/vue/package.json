@@ -18,6 +18,10 @@
       "dist",
       "src/style"
     ],
+    "repository": {
+      "type": "git",
+      "url": "https://git.rei.com/scm/fedpack/<%&packageName%>.git"
+    },
     "license": "UNLICENSED",
     "scripts": {
       "dev": "vite --open",

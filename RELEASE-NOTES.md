@@ -1,5 +1,9 @@
 # Release notes
 
+## 1.1.0
+
+Adding repository metadata to `package.json` templates.
+
 ## 1.0.3
 
 Small change to `README.md`
