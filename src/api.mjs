@@ -64,7 +64,6 @@ async function generate({
               'gitignore',
               '.gitignore'
             );
-            console.log(filePath);
           }
         }
 
