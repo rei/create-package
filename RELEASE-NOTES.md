@@ -1,5 +1,11 @@
 # Release notes
 
+## 1.1.1
+
+### Bug Fixes
+
+- Addresses https://github.com/npm/npm/issues/7252. By design, NPM pack/publish renames `.gitignore` to `.npmpublish`. To work around this, we pack a `gitignore` file instead of `.gitignore` and rename it to `.gitignore` at runtime. 
+
 ## 1.1.0
 
 Adding repository metadata to `package.json` templates.

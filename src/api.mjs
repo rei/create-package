@@ -57,6 +57,17 @@ async function generate({
         );
         const { dir } = path.parse(filePath);
 
+        // Addresses https://github.com/npm/npm/issues/7252
+        if (packageTemplate === TemplateTypes.COMMON) {
+          if (filePath.includes('gitignore')) {
+            filePath = filePath.replace(
+              'gitignore',
+              '.gitignore'
+            );
+            console.log(filePath);
+          }
+        }
+
         if (packageTemplate === TemplateTypes.VUE) {
           if (filePath.includes('[camelComponentName]')) {
             // Here we're transforming the templatized component name
