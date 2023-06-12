@@ -1,5 +1,8 @@
 # Release notes
 
+## 1.2.0
+- Adding `--microsite` option to scaffold out QuickStart microsite front-end code and configuration.
+
 ## 1.1.1
 
 ### Bug Fixes
