@@ -2,7 +2,10 @@
 
 The officially supported way to create NPM packages at [REI](https://www.rei.com/).
 
-With `@rei/create-package`, you can quickly scaffold a [Vue](https://vuejs.org/) component compiled by [Vite](https://vitejs.dev/) and configured with REI default settings. Or scaffold a vanilla JavaScript library that's ready to be imported into your application.
+With `@rei/create-package`, you can quickly scaffold:
+- a [Vue](https://vuejs.org/) component compiled by [Vite](https://vitejs.dev/) and configured with REI default settings
+- a vanilla JavaScript library that's ready to be imported into your application
+- Alpine microsite front-end code and configuration 
 
 Report bugs in the [issues](https://github.com/rei/create-package/issues) tab.
 
@@ -36,6 +39,14 @@ npx @rei/create-package --name carousel
 npx @rei/create-package --name js-lib --template vanilla
 ```
 
+- Microsite code and configuration. This scaffolds out the front-end [QuickStart microsite code](https://git.rei.com/projects/QM/repos/quickstart-microsite/browse) and build/test configuration. 
+
+From the front-end root package directory:
+
+```sh
+npx @rei/create-package --name <microsite name> --template microsite --no-dir
+```
+
 #### `npx @rei/create-package [interactive|i]`
 
 Use "interactive mode" to follow command prompts to generate an NPM package.
@@ -54,7 +65,7 @@ The description of the NPM package we're intializing. Defaults to `description`
 
 The author of the NPM package we're intializing. Attempts to resolve the user's git username and email, otherwise defaults to `REI`.
 
-`-t, --template [vue|vanilla]`
+`-t, --template [vue|vanilla|microsite]`
 
 The type of template we're initializing. Defaults to `vue`.
 
@@ -81,7 +92,9 @@ Templates are divided by type in their directories. Template directories contain
 │   │   ├── .chairlift.yml
 │   │   └── .npmrc
 │   ├── vue
-│   └── vanilla
+│   ├── vanilla
+│   └── microsite
+
 ...
 ```
 
@@ -99,7 +112,7 @@ REI uses an internal tool called Chairlift that sets up SCM and a CI/CD pipeline
 
 ## Contributing
 
-Modify existing templates freely. Add envirnonmental variables to `.env` to make them available for render.
+Modify existing templates freely. Add environmental variables to `.env` to make them available for render.
 
 Adding a new template is a more involved process. You'll need to create a new template directory and then ensure the Node scripts can process it.
 
