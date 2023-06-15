@@ -137,7 +137,7 @@ export async function createPackage({ answers = {} }) {
   // First, determine if we're creating a namespaced directory for the
   // package. If not, scaffold out the package contents directly in the cwd
   const { namespacedDir = true, packageName, packageTemplate } = answers || {};
-  const isMicrosite = packageTemplate.toLowerCase().includes('microsite');
+  const isMicrosite = packageTemplate === TemplateTypes.MICROSITE;
 
   logger.info(`Scaffolding a new ${isMicrosite ? 'microsite' : 'NPM package'}`);
 
