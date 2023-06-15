@@ -1,7 +1,4 @@
-.babelcache/
-.nyc_output
 target/
 node_modules/
 dist/
 coverage/
-coverage-vue/
