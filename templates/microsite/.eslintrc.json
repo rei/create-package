@@ -1,5 +1,8 @@
 {
-  "extends": ["airbnb-base", "plugin:vue/recommended"],
+  "extends": [
+    "airbnb-base",
+    "plugin:vue/recommended"
+  ],
   "env": {
     "node": true,
     "mocha": true,
@@ -7,7 +10,14 @@
   },
   "overrides": [
     {
-      "files": ["src/main/js/**/*.{spec,test}.{js,mjs}"],
+      "rules": {
+        "import/no-extraneous-dependencies": ["error", {
+          "devDependencies": true
+        }]
+      },
+      "files": [
+        "src/main/js/**/*.{spec,test}.{js,mjs}"
+      ],
       "globals": {
         "expect": true,
         "beforeAll": true,
