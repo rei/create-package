@@ -27,6 +27,7 @@ export const TemplatePaths = {
   COMMON: path.resolve(TEMPLATE_DIR, 'common'),
   VUE: path.resolve(TEMPLATE_DIR, 'vue'),
   VANILLA: path.resolve(TEMPLATE_DIR, 'vanilla'),
+  MICROSITE: path.resolve(TEMPLATE_DIR, 'microsite'),
 };
 
 /**
@@ -132,10 +133,14 @@ async function install(PACKAGE_WORKING_DIR) {
  * @param {*} param0
  */
 export async function createPackage({ answers = {} }) {
-  logger.info('Scaffolding a new NPM package');
+
   // First, determine if we're creating a namespaced directory for the
   // package. If not, scaffold out the package contents directly in the cwd
   const { namespacedDir = true, packageName, packageTemplate } = answers || {};
+  const isMicrosite = packageTemplate === TemplateTypes.MICROSITE;
+
+  logger.info(`Scaffolding a new ${isMicrosite ? 'microsite' : 'NPM package'}`);
+
   const PACKAGE_WORKING_DIR = path.resolve(
     process.cwd(),
     namespacedDir ? packageName : ''
@@ -144,7 +149,7 @@ export async function createPackage({ answers = {} }) {
     await fs.mkdir(PACKAGE_WORKING_DIR, { recursive: true });
   }
 
-  logger.info(`Creating a new ${packageTemplate} in ${PACKAGE_WORKING_DIR}`);
+  logger.info(`Creating ${isMicrosite ? `${packageTemplate}` : `a new ${packageTemplate} in ${PACKAGE_WORKING_DIR}`}`);
 
   // Walk the "common" templates, rendering them with data from {@link answers}
   // and the {@link CONFIG}, writing them to the appropriate directory based
@@ -186,6 +191,17 @@ export async function createPackage({ answers = {} }) {
   } else if (packageTemplate === TemplateTypes.VANILLA) {
     await generate({
       walkPath: TemplatePaths.VANILLA,
+      packageTemplate,
+      packageWorkingDir: PACKAGE_WORKING_DIR,
+      data: {
+        ...CONFIG,
+        ...answers,
+      },
+    });
+    await install(PACKAGE_WORKING_DIR);
+  } else if (packageTemplate === TemplateTypes.MICROSITE) {
+    await generate({
+      walkPath: TemplatePaths.MICROSITE,
       packageTemplate,
       packageWorkingDir: PACKAGE_WORKING_DIR,
       data: {

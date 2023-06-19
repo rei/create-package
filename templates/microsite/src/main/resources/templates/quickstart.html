@@ -1,0 +1,50 @@
+<html
+  xmlns:th="http://www.thymeleaf.org"
+  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+  xmlns:febs="https://engineering.rei.com/febs"
+  layout:decorate="~{global}"
+  th:lang="en"
+>
+  <head>
+    <title>QuickStart Page</title>
+    <th:block
+      th:with="
+        ssrCriticalCSS = ${SSRMap != null ? SSRMap.get('criticalCSS') : ''},
+        hasCriticalCSS = ${!#strings.isEmpty(ssrCriticalCSS)}
+      "
+    >
+      <th:block th:if="${hasCriticalCSS}">
+        <style th:utext="${ssrCriticalCSS}"></style>
+        <link
+          media="print"
+          onload="this.media='all'"
+          febs:entry="src/main/js/components/QuickStartPageComponent/entry-client.js"
+        />
+      </th:block>
+      <th:block th:unless="${hasCriticalCSS}">
+        <link febs:entry="src/main/js/components/QuickStartPageComponent/entry-client.js" />
+      </th:block>
+    </th:block>
+  </head>
+  <body>
+    <th:block
+      th:with="
+        ssrHtml = ${SSRMap != null ? SSRMap.get('html') : ''},
+        isServerRendered = ${!#strings.isEmpty(ssrHtml)}
+      "
+      layout:fragment="content"
+    >
+      <main
+        id="app"
+        th:utext="${ssrHtml}"
+        th:attr="data-server-rendered=${isServerRendered}"
+      ></main>
+    </th:block>
+    <th:block layout:fragment="pageScripts">
+      <script
+        type="module"
+        febs:entry="src/main/js/components/QuickStartPageComponent/entry-client.js"
+      ></script>
+    </th:block>
+  </body>
+</html>

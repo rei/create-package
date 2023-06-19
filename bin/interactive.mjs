@@ -41,13 +41,13 @@ export default async function interactive() {
         name: 'packageTemplate',
         message: 'What kind of NPM package are you creating?',
         default: TemplateTypes.VUE,
-        choices: [TemplateTypes.VUE, TemplateTypes.VANILLA],
+        choices: [TemplateTypes.VUE, TemplateTypes.VANILLA, TemplateTypes.MICROSITE],
       },
       {
         type: 'confirm',
         name: 'namespacedDir',
         message:
-          'Should we create a namespaced directory for this package? If no, files will output to the CWD.',
+          'Should we create a namespaced directory for this package? If no, files will output to the CWD. (Select "n" for microsite)',
         default: Defaults.PACKAGE_NAMESPACE,
       },
     ]);

@@ -1,0 +1,51 @@
+{
+  "name": "<%&packageName%>",
+  "version": "1.0.0",
+  "description": "<%&packageDescription%>",
+  "scripts": {
+    "dev": "vite",
+    "build": "npm run test && npm run build:client && npm run build:ssr",
+    "build-only": "npm run build",
+    "build:client": "vite build",
+    "build:ssr": "vite build --config vite.config.ssr.mjs",
+    "postbuild": "send-cov-stats",
+    "update-snapshot": "vitest -u",
+    "open-coverage": "npm run unit && open coverage/index.html",
+    "test": "npm run lint && npm run unit",
+    "unit": "vitest run --coverage",
+    "unit-local": "vitest run --coverage -- --check-coverage",
+    "test:watch": "vitest --coverage --watch",
+    "posttest": "send-cov-stats",
+    "lint": "eslint --ext .js --ext .vue --ext .mjs ./src/main/js",
+    "ssr-install": "node ./node_modules/@rei/ssr/dist/install.mjs",
+    "ssr-logs": "docker logs -f climbers-site-ssr",
+    "prebuild": "satchel-cleaner"
+  },
+  "author": "REI",
+  "license": "UNLICENSED",
+  "private": true,
+  "devDependencies": {
+    "@rei/cov-stats": "^1.5.0",
+    "@vitest/coverage-c8": "^0.29.8",
+    "@vue/test-utils": "^2.0.0",
+    "c8": "^7.13.0",
+    "eslint": "^8.18.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-vue": "^9.1.1",
+    "jsdom": "^20.0.0",
+    "vite": "^4.0.0",
+    "vitest": "^0.29.8",
+    "vue-eslint-parser": "^9.0.2"
+  },
+  "dependencies": {
+    "@rei/alpine-satchel-cleaner": "^1.0.0",
+    "@rei/cdr-tokens": "^11.0.1",
+    "@rei/cedar": "^13.2.0",
+    "@rei/climber-details-page": "^10.1.0",
+    "@rei/ssr": "^3.0.0",
+    "@rei/vite-base-config": "^3.0.0",
+    "@rei/vite-plugin-alpine-uploader": "^1.0.0",
+    "vue": "^3.2.45"
+  }
+}

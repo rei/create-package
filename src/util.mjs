@@ -8,6 +8,7 @@ const logger = LoggerFactory({ label: '/util' });
 export const TemplateTypes = {
   VUE: 'Vue 3 component',
   VANILLA: 'Vanilla JavaScript library',
+  MICROSITE: 'Microsite front-end code (QuickStart)',
 };
 
 export const Defaults = {
