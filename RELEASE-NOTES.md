@@ -1,6 +1,11 @@
 # Release notes
+## 1.2.1
 
+- Provide Tier 0 Analytics out-of-the-box:
+    - Adding `@rei/metrics` NPM package as a dependency to `package.json`.
+    - Import `@rei/metrics` into `QuickStartPageComponent.vue` and call `metrics.view()`, passing in project name.
 ## 1.2.0
+
 - Adding `--microsite` option to scaffold out QuickStart microsite front-end code and configuration.
 
 ## 1.1.1
@@ -11,15 +16,15 @@
 
 ## 1.1.0
 
-Adding repository metadata to `package.json` templates.
+- Adding repository metadata to `package.json` templates.
 
 ## 1.0.3
 
-Small change to `README.md`
+- Small change to `README.md`
 
 ## 1.0.2
 
-Adds screencast to `README.md`
+- Adds screencast to `README.md`
 
 ## 1.0.1
 
@@ -29,4 +34,4 @@ Adds screencast to `README.md`
 
 ## 1.0.0
 
-The initial release of the NPM initializer. See `README.md`.
+- The initial release of the NPM initializer. See `README.md`.
