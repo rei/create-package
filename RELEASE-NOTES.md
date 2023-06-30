@@ -2,8 +2,9 @@
 ## 1.2.1
 
 - Provide Tier 0 Analytics out-of-the-box:
-    - Adding `@rei/metrics` NPM package as a dependency to `package.json`.
-    - Import `@rei/metrics` into `QuickStartPageComponent.vue` and call `metrics.view()`, passing in project name.
+  - Added the `@rei/metrics` NPM package as a dependency to `package.json`.
+  - Imported `@rei/metrics` into `QuickStartPageComponent.vue` and called `metrics.view()`, passing in the project name.
+
 ## 1.2.0
 
 - Adding `--microsite` option to scaffold out QuickStart microsite front-end code and configuration.
