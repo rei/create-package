@@ -1,5 +1,5 @@
 # Release notes
-## 1.2.1
+## 1.3.0
 
 - Provide Tier 0 Analytics out-of-the-box:
   - Added the `@rei/metrics` NPM package as a dependency to `package.json`.

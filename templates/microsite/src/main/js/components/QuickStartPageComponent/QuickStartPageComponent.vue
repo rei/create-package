@@ -40,7 +40,7 @@ export default {
       default: false,
     },
   },
-  created() {
+  mounted() {
     metricsPageView();
   },
   methods: {
