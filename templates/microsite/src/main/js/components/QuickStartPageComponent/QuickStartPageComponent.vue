@@ -29,6 +29,7 @@
 </template>
 <script>
 import { CdrText, CdrImg } from '@rei/cedar';
+import metrics from '@rei/metrics';
 
 export default {
   name: 'QuickStartPageComponent',
@@ -39,12 +40,18 @@ export default {
       default: false,
     },
   },
+  mounted() {
+    metricsPageView();
+  },
   methods: {
 
     getMessage() {
       return this.success
         ? "🤗 Congratulations! You've successfully created your first Alpine Vue app and are passing data to it from the controller! Great job! 🎉"
         : "🤔 Almost there! Looks like we're missing the data from the controller. Check the pageData value in the #modelData element and that your props are being passed correctly.";
+    },
+    metricsPageView() {
+      metrics.view({pageName: `${__PACKAGE_NAME__}:home`});
     },
   },
 };

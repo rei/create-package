@@ -46,6 +46,7 @@
     "@rei/ssr": "^3.0.0",
     "@rei/vite-base-config": "^3.0.0",
     "@rei/vite-plugin-alpine-uploader": "^1.0.0",
-    "vue": "^3.2.45"
+    "vue": "^3.2.45",
+    "@rei/metrics": "^3.1.26"
   }
 }
