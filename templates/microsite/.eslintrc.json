@@ -8,6 +8,9 @@
     "mocha": true,
     "browser": true
   },
+  "globals": {
+    "__PROJECT_NAME__": true
+  },
   "overrides": [
     {
       "rules": {
