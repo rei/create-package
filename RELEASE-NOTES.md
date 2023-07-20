@@ -2,6 +2,7 @@
 ## 1.3.1
 ### Bug Fixes
 - Need to call `this.metricsPageView()` in `QuickStartPageComponent.vue`.
+- Reference `__PROJECT_NAME__`, not `__PACKAGE_NAME__`.
 ## 1.3.0
 
 - Provide Tier 0 Analytics out-of-the-box:
