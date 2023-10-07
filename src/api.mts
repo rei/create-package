@@ -2,9 +2,10 @@
 import * as dotenv from 'dotenv';
 import Mustache from 'mustache';
 import { walk } from '@root/walk';
-import path from 'path';
-import fs from 'fs/promises';
-import { fileURLToPath } from 'url';
+import path from 'node:path';
+import fs from 'node:fs/promises';
+import { fileURLToPath } from 'node:url';
+import { Stats } from 'node:fs';
 import LoggerFactory from './logger.mjs';
 import { TemplateTypes, run } from './util.mjs';
 
@@ -15,14 +16,8 @@ const TEMPLATE_DIR = path.resolve(DIRNAME, '..', 'templates');
 // Overriding opening and closing tags as the Vue templates use {{ }}
 Mustache.tags = ['<%', '%>'];
 
-/**
- *
- */
 export const CONFIG = dotenv.config({ path: path.resolve(DIRNAME, '..', '.env') })?.parsed || {};
 
-/**
- *
- */
 export const TemplatePaths = {
   COMMON: path.resolve(TEMPLATE_DIR, 'common'),
   VUE: path.resolve(TEMPLATE_DIR, 'vue'),
@@ -30,17 +25,20 @@ export const TemplatePaths = {
   MICROSITE: path.resolve(TEMPLATE_DIR, 'microsite'),
 };
 
-/**
- *
- * @param {*} param0
- */
+interface ComponentNames {
+  kebabComponentName?: string,
+  camelComponentName?: string,
+}
+
+type GenerateData = ComponentNames & dotenv.DotenvParseOutput & Answer;
+
 async function generate({
   walkPath,
   packageTemplate,
   packageWorkingDir,
   data,
-}) {
-  await walk(walkPath, async (err, pathname, dirent) => {
+}: { walkPath: string, packageTemplate: string, packageWorkingDir: string, data: GenerateData }) {
+  await walk(walkPath, async (err: Error, pathname: string, dirent: Stats) => {
     try {
       if (err) {
         throw err;
@@ -54,7 +52,7 @@ async function generate({
 
         let filePath = path.resolve(
           packageWorkingDir,
-          pathname.slice(walkPath.length + 1)
+          pathname.slice(walkPath.length + 1),
         );
         const { dir } = path.parse(filePath);
 
@@ -63,7 +61,7 @@ async function generate({
           if (filePath.includes('gitignore')) {
             filePath = filePath.replace(
               'gitignore',
-              '.gitignore'
+              '.gitignore',
             );
           }
         }
@@ -75,7 +73,7 @@ async function generate({
             const { camelComponentName } = data;
             filePath = filePath.replace(
               '[camelComponentName]',
-              camelComponentName
+              camelComponentName as string,
             );
           }
         }
@@ -86,8 +84,8 @@ async function generate({
         logger.verbose(
           `Wrote: ${path.resolve(
             packageWorkingDir,
-            pathname.slice(walkPath.length + 1)
-          )}`
+            pathname.slice(walkPath.length + 1),
+          )}`,
         );
       }
     } catch (error) {
@@ -101,7 +99,7 @@ async function generate({
  *
  * @param {*} PACKAGE_WORKING_DIR
  */
-async function runComponent(PACKAGE_WORKING_DIR) {
+async function runComponent(PACKAGE_WORKING_DIR: string) {
   try {
     process.chdir(PACKAGE_WORKING_DIR);
     logger.info('Booting up the Vite development server');
@@ -116,11 +114,11 @@ async function runComponent(PACKAGE_WORKING_DIR) {
  *
  * @param {*} PACKAGE_WORKING_DIR
  */
-async function install(PACKAGE_WORKING_DIR) {
+async function install(PACKAGE_WORKING_DIR: string) {
   try {
     process.chdir(PACKAGE_WORKING_DIR);
     logger.info(
-      `Running \`npm i\` in ${PACKAGE_WORKING_DIR}. This will take a moment...`
+      `Running \`npm i\` in ${PACKAGE_WORKING_DIR}. This will take a moment...`,
     );
     await run('npm i');
   } catch (error) {
@@ -132,8 +130,7 @@ async function install(PACKAGE_WORKING_DIR) {
  *
  * @param {*} param0
  */
-export async function createPackage({ answers = {} }) {
-
+export async function createPackage({ answers }: { answers: Answer }) {
   // First, determine if we're creating a namespaced directory for the
   // package. If not, scaffold out the package contents directly in the cwd
   const { namespacedDir = true, packageName, packageTemplate } = answers || {};
@@ -143,7 +140,7 @@ export async function createPackage({ answers = {} }) {
 
   const PACKAGE_WORKING_DIR = path.resolve(
     process.cwd(),
-    namespacedDir ? packageName : ''
+    namespacedDir ? packageName : '',
   );
   if (namespacedDir) {
     await fs.mkdir(PACKAGE_WORKING_DIR, { recursive: true });
@@ -157,6 +154,8 @@ export async function createPackage({ answers = {} }) {
   await generate({
     walkPath: TemplatePaths.COMMON,
     packageWorkingDir: PACKAGE_WORKING_DIR,
+    packageTemplate: TemplateTypes.COMMON,
+
     data: {
       ...CONFIG,
       ...answers,
@@ -172,7 +171,7 @@ export async function createPackage({ answers = {} }) {
     const kebabComponentName = packageName;
     const camelComponentName = kebabComponentName
       .split('-')
-      .map((x) => x.charAt(0).toUpperCase() + x.slice(1))
+      .map((x: string) => x.charAt(0).toUpperCase() + x.slice(1))
       .join('');
 
     await generate({

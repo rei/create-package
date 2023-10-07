@@ -1,13 +1,11 @@
-import { transports, format, createLogger } from 'winston';
+import {
+  transports, format, createLogger, Logger,
+} from 'winston';
 
 /**
  * Logger factory using 'winston'
- *
- * @export
- * @param {*} { level = 'info', label }
- * @return {*}
  */
-export default function LoggerFactory({ level = 'info', label = '' } = {}) {
+export default function LoggerFactory({ level = 'info', label = '' } = {}): Logger {
   const trans = [new transports.Console({ level })];
   return createLogger({
     format: format.combine(

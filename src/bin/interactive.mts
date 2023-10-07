@@ -1,14 +1,15 @@
 import inquirer from 'inquirer';
-import LoggerFactory from '../src/logger.mjs';
-import { createPackage } from '../src/api.mjs';
+import { Logger } from 'winston';
+import LoggerFactory from '../logger.mjs';
+import { createPackage } from '../api.mjs';
 import {
   TemplateTypes,
   Defaults,
   packageNameFilter,
   packageAuthor,
-} from '../src/util.mjs';
+} from '../util.mjs';
 
-const logger = new LoggerFactory({ label: '/interactive' });
+const logger: Logger = LoggerFactory({ label: '/interactive' });
 
 export default async function interactive() {
   try {
