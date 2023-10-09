@@ -4,7 +4,7 @@ export default defineConfig({
   test: {
     testTimeout: 20000,
     globals: true,
-    include: ['src/*.{spec,test}.{mjs,mts}'],
+    include: ['src/*.{spec,test}.{mjs,mts}', 'test'],
     environment: 'node',
     coverage: {
       reporter: ['text', 'json-summary', 'html'],
@@ -13,7 +13,6 @@ export default defineConfig({
         'test',
         'dist',
         '**/*.d.mts',
-        'src/types.mts',
       ],
       include: ['src', 'test'],
       clean: true,
