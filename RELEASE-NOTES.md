@@ -1,5 +1,11 @@
 # Release notes
 
+## 2.0.0
+- Refactor source code to TS.
+- Update templates to scaffold TS.
+- Add unit tests.
+- From 2.0.0, create-package will template out TypeScript configuration and entry points. The 1.x version will support non-TS.
+
 ## 1.3.1
 
 ### Bug Fixes
