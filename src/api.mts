@@ -30,6 +30,14 @@ interface ComponentNames {
   camelComponentName?: string,
 }
 
+interface Answer {
+  packageName: string,
+  packageDescription: string,
+  packageAuthor: string,
+  packageTemplate: string,
+  namespacedDir: string
+}
+
 type GenerateData = ComponentNames & dotenv.DotenvParseOutput & Answer;
 
 async function generate({

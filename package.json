@@ -4,8 +4,9 @@
   "description": "An NPM initializer that scaffolds new NPM packages",
   "main": "dist/bin/main.mjs",
   "scripts": {
-    "build-only": "tsc",
-    "prepare": "npm run lint && npm run test && rimraf ./dist && tsc",
+    "build": "npm run clean && tsc",
+    "clean": "rimraf ./dist",
+    "prepare": "npm run lint && npm run test && npm run clean && npm run build",
     "lint": "eslint . --ext .mts",
     "test": "vitest run"
   },
