@@ -1,6 +1,6 @@
 {
   "root": true,
-  "parser": "vue-eslint-parser",
+  "parser": "@typescript-eslint/parser",
   "parserOptions": {
     "sourceType": "module",
     "project": "tsconfig.json",
@@ -11,8 +11,6 @@
   "extends": [
     "eslint:recommended",
     "plugin:@typescript-eslint/recommended",
-    "plugin:vue/vue3-recommended",
-    "@vue/typescript/recommended",
     "airbnb-base",
     "airbnb-typescript/base"
   ],
