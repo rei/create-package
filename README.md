@@ -4,7 +4,7 @@ The officially supported way to create NPM packages at [REI](https://www.rei.com
 
 With `@rei/create-package`, you can quickly scaffold:
 - a [Vue](https://vuejs.org/) component compiled by [Vite](https://vitejs.dev/) and configured with REI default settings
-- a vanilla JavaScript library that's ready to be imported into your application
+- a vanilla TypeScript library that's ready to be imported into your application
 - Alpine microsite front-end code and configuration 
 
 Report bugs in the [issues](https://github.com/rei/create-package/issues) tab.
@@ -33,10 +33,10 @@ This command is preset to generate a Vue 3 project from the `templates/vue` temp
 npx @rei/create-package --name carousel
 ```
 
-- Create a vanilla JavaScript library
+- Create a vanilla TypeScript library
 
 ```sh
-npx @rei/create-package --name js-lib --template vanilla
+npx @rei/create-package --name ts-lib --template vanilla
 ```
 
 - Microsite code and configuration. This scaffolds out the front-end [QuickStart microsite code](https://git.rei.com/projects/QM/repos/quickstart-microsite/browse) and build/test configuration. 

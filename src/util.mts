@@ -6,7 +6,7 @@ const logger = LoggerFactory({ label: '/util' });
 
 export const TemplateTypes: { [type: string]: string } = {
   VUE: 'Vue 3 component',
-  VANILLA: 'Vanilla JavaScript library',
+  VANILLA: 'Vanilla TypeScript library',
   MICROSITE: 'Microsite front-end code (QuickStart)',
   COMMON: 'Common template',
 };
