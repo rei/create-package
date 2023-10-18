@@ -1,6 +1,6 @@
 {
   "extends": "@vue/tsconfig/tsconfig.dom.json",
-  "include": ["src/**/*.mts", "./*.mts"],
+  "include": ["src/**/*.mts", "test/**/*.mts", "./*.mts"],
   "exclude": [],
   "compilerOptions": {
     "composite": true,

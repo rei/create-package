@@ -20,9 +20,11 @@
   "ignorePatterns": ["dist"],
   "overrides": [
     {
-      "files": ["src/**/*.mts", "src/**/*.vue"],
+      "files": ["src/**/*.mts", "test/**/*.mts", "src/**/*.vue"],
       "rules": {
-        "no-undef": "off"
+        "no-undef": "off",
+        "import/extensions": "off",
+        "import/no-unresolved": "off"
       }
     }
   ]
