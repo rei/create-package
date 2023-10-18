@@ -1,11 +1,4 @@
 {
-  "extends": "@vue/tsconfig/tsconfig.dom.json",
+  "extends": "./node_modules/@rei/vite-base-config/tool-configs/typescript/vanilla/tsconfig",
   "include": ["src/**/*.mts", "test/**/*.mts", "./*.mts"],
-  "exclude": [],
-  "compilerOptions": {
-    "composite": true,
-    "baseUrl": ".",
-    "allowJs": true,
-    "noEmit": true
-  }
 }
