@@ -18,11 +18,11 @@
         <link
           media="print"
           onload="this.media='all'"
-          febs:entry="src/main/js/components/QuickStartPageComponent/entry-client.js"
+          febs:entry="src/main/js/components/QuickStartPageComponent/entry-client.mts"
         />
       </th:block>
       <th:block th:unless="${hasCriticalCSS}">
-        <link febs:entry="src/main/js/components/QuickStartPageComponent/entry-client.js" />
+        <link febs:entry="src/main/js/components/QuickStartPageComponent/entry-client.mts" />
       </th:block>
     </th:block>
   </head>
@@ -43,7 +43,7 @@
     <th:block layout:fragment="pageScripts">
       <script
         type="module"
-        febs:entry="src/main/js/components/QuickStartPageComponent/entry-client.js"
+        febs:entry="src/main/js/components/QuickStartPageComponent/entry-client.mts"
       ></script>
     </th:block>
   </body>
