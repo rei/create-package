@@ -51,13 +51,13 @@ export default {
         : "🤔 Almost there! Looks like we're missing the data from the controller. Check the pageData value in the #modelData element and that your props are being passed correctly.";
     },
     metricsPageView() {
-      metrics.view({ pageName: `{__PROJECT_NAME__}:home` });
+      metrics.view({ pageName: '{__PROJECT_NAME__}:home' });
     },
   },
 };
 </script>
 <style lang="scss">
-@import "@rei/cdr-tokens/dist/scss/cdr-tokens";
+@import "@rei/cdr-tokens/dist/rei-dot-com/scss/cdr-tokens";
 
 #quickstart-container {
   display: inline-block;

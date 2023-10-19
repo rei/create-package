@@ -13,12 +13,12 @@ describe('QuickStartPageComponent', () => {
     expect(wrapper.find('img').exists()).to.equal(true);
   });
   test('should render green if success', () => {
-    expect(wrapper.get('.success-background').exists()).to.equal(true);
+    expect(wrapper.find('.success-background').exists()).to.equal(true);
   });
   test('should render red if error', () => {
     wrapper = mount(component, {
       propsData: { success: false },
     });
-    expect(wrapper.get('.error-background').exists()).to.equal(true);
+    expect(wrapper.find('.error-background').exists()).to.equal(true);
   });
 });

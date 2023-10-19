@@ -6,6 +6,6 @@ export default getAppBuildConfig({
     AlpineUploader(),
   ],
   input: {
-    quickstart: 'src/main/js/components/QuickStartPageComponent/entry-client.js',
+    quickstart: 'src/main/js/components/QuickStartPageComponent/entry-client.mts',
   },
 });

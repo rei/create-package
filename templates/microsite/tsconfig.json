@@ -1,0 +1,4 @@
+{
+  "extends": "./tool-configs/typescript/tsconfig-application",
+  "include": ["src/**/*.mts", "test/**/*.mts", "./*.mts", "src/**/*.vue"],
+}
