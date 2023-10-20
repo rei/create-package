@@ -30,10 +30,6 @@ export function getFormattedTotal(products:Product[]) {
 
 /**
  * Sorts types with a price field. (descending order)
- * Illustrates the concept of TypeScript's structural type system.
- * I.e., sortByPrice will sort anything with a price property, not only a Product.
- * @param products
- * @returns
  */
 function sortByPrice(products: { price: number }[]) {
   return products.sort((a, b) => {
