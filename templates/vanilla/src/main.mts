@@ -8,6 +8,9 @@ export interface Product extends Item {
   price: number,
 }
 
+/**
+ * Returns a USD currency formatter function.
+ */
 function getUSDFormatter() {
   const nf = new Intl.NumberFormat('en-US', {
     style: 'currency',
@@ -23,6 +26,9 @@ export function getTotal(products: Product[]) {
   return products.reduce((acc, cur) => acc + cur.price, 0);
 }
 
+/**
+ * Returns formatted USD currency value.
+ */
 export function getFormattedTotal(products:Product[]) {
   const format = getUSDFormatter();
   return format(getTotal(products));
