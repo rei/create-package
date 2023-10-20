@@ -5,6 +5,7 @@
 - Update templates to scaffold TS.
 - Add unit tests.
 - From 2.0.0, create-package will template out TypeScript configuration and entry points. The 1.x version will support non-TS.
+- Update Chairlift Node.js version from 16.13 -> 16.20
 
 ## 1.3.1
 
