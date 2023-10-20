@@ -1,4 +1,4 @@
 {
   "extends": "./node_modules/@rei/vite-base-config/tool-configs/typescript/tsconfig-application",
-  "include": ["src/**/*.mts", "test/**/*.mts", "./*.mts", "src/**/*.vue"],
+  "include": ["src/**/*.mts", "test/**/*.mts","src/**/*.vue"],
 }

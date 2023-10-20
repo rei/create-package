@@ -5,6 +5,7 @@
     "version": "1.0.0",
     "main": "./dist/main.js",
     "module": "./dist/main.mjs",
+    "types": "./dist/main.d.ts",
     "exports": {
       ".": {
         "import": "./dist/main.mjs"
