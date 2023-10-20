@@ -41,7 +41,7 @@
     "devDependencies": {
       "@rei/alpine-satchel-cleaner": "^1.0.0",
       "@rei/cov-stats": "^1.5.1",
-      "@rei/vite-base-config": "^4.0.7",
+      "@rei/vite-base-config": "^4.1.2",
       "@rei/vite-plugin-alpine-uploader": "^1.1.1",
       "@typescript-eslint/eslint-plugin": "^6.7.2",
       "@typescript-eslint/parser": "^6.7.2",
