@@ -12,18 +12,26 @@ Report bugs in the [issues](https://github.com/rei/create-package/issues) tab.
 ## Usage
 
 ```sh
-npx @rei/create-package
+npx @rei/create-package@^1 #(JavaScript)
+```
+or
+```sh
+npx @rei/create-package@^2 #(TypeScript)
 ```
 
 <p align='center'>
 <img src='https://www.rei.com/satchel/media/img/rei-create-package.gif' alt='npx @rei/create-package' width="500">
 </p>
 
+## TypeScript and JavaScript versions
+
+The initializer can scaffold out either JavaScript  or TypeScript code depending on the version you run the initializer with. If you don't specify the version, the initializer will default to the latest version, currently `2.^` (TypeScript).
+
 ## CLI
 
 ### Commands
 
-#### `npx @rei/create-package`
+#### `npx @rei/create-package[@version]`
 
 This command is preset to generate a Vue 3 project from the `templates/vue` template directory. See the options section to inspect default values for options used by the command.
 
@@ -36,7 +44,7 @@ npx @rei/create-package --name carousel
 - Create a vanilla TypeScript library
 
 ```sh
-npx @rei/create-package --name ts-lib --template vanilla
+npx @rei/create-package --name lib --template vanilla
 ```
 
 - Microsite code and configuration. This scaffolds out the front-end [QuickStart microsite code](https://git.rei.com/projects/QM/repos/quickstart-microsite/browse) and build/test configuration. 
