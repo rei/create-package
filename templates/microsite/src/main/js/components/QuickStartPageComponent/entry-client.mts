@@ -1,3 +1,5 @@
+/* c8 ignore start */
+
 import '@rei/cedar/dist/reset.css';
 import '@rei/cedar/dist/cdr-fonts.css';
 // Import styles from Cedar

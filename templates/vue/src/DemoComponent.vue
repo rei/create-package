@@ -7,7 +7,7 @@ import <%&camelComponentName%>Component from './<%&camelComponentName%>Component
 </script>
 
 <style lang="scss">
-@import "@rei/cdr-tokens/dist/scss/cdr-tokens.scss";
+@import "@rei/cdr-tokens/dist/rei-dot-com/scss/cdr-tokens.scss";
 
 body {
   padding: 0 1em;

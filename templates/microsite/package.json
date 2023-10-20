@@ -5,10 +5,10 @@
   "scripts": {
     "prebuild": "satchel-cleaner",
     "type-check": "vue-tsc --noEmit",
-    "build": "npm run test && npm run build:client && npm run build:ssr",
+    "build": "npm run type-check && npm run test && npm run build:client && npm run build:ssr",
     "postbuild": "send-cov-stats",
     "build-only": "npm run build",
-    "build:client": "npm run type-check && vite build",
+    "build:client": "vite build",
     "build:ssr": "vite build --config vite.config.ssr.mts",
     "dev": "vite",
     "lint": "eslint --ext .mts --ext .vue ./src/main/js",
@@ -51,7 +51,7 @@
     "@rei/climber-details-page": "^11.0.3",
     "@rei/metrics": "^3.1.26",
     "@rei/ssr": "^3.0.1",
-    "@rei/vite-base-config": "^4.0.7",
+    "@rei/vite-base-config": "^4.1.1",
     "@rei/vite-plugin-alpine-uploader": "^1.1.1",
     "@vue/tsconfig": "^0.4.0",
     "vue": "^3.3.4"

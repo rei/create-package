@@ -8,11 +8,24 @@ export interface Product extends Item {
   price: number,
 }
 
+function getUSDFormatter() {
+  const nf = new Intl.NumberFormat('en-US', {
+    style: 'currency',
+    currency: 'USD',
+  });
+  return nf.format;
+}
+
 /**
- * Totals an array of Products
+ * Totals an array of Products.
  */
 export function getTotal(products: Product[]) {
   return products.reduce((acc, cur) => acc + cur.price, 0);
+}
+
+export function getFormattedTotal(products:Product[]) {
+  const format = getUSDFormatter();
+  return format(getTotal(products));
 }
 
 /**

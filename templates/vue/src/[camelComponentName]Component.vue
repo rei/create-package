@@ -11,7 +11,10 @@
         src="https://www.rei.com/assets/test/climbers-site/vuejs-logo/live.png"
         alt="Vue.js logo"
       />
-      <cdr-text class="component__header-text" tag="h1">
+      <cdr-text
+        class="component__header-text"
+        tag="h1"
+      >
         {{ msg }}
       </cdr-text>
     </section>
@@ -44,7 +47,10 @@
       </cdr-text>
     </section>
     <section class="component__checklist">
-      <cdr-text class="component__sub-header" tag="h2">
+      <cdr-text
+        class="component__sub-header"
+        tag="h2"
+      >
         Pre-publish checklist
       </cdr-text>
       <cdr-text>
@@ -53,7 +59,10 @@
       </cdr-text>
       <cdr-form-group>
         <cdr-checkbox size="large">
-          <cdr-text tag="span" class="body-strong">
+          <cdr-text
+            tag="span"
+            class="body-strong"
+          >
             Shared dependencies should be declared as
             <code>peerDependencies</code>.
           </cdr-text>
@@ -65,7 +74,10 @@
           declare shared dependencies as <code>peerDependencies</code>.
         </cdr-checkbox>
         <cdr-checkbox size="large">
-          <cdr-text tag="span" class="body-strong">
+          <cdr-text
+            tag="span"
+            class="body-strong"
+          >
             Vendor and other imported styles are excluded from the built bundle.
           </cdr-text>
           Applications importing your component need to manually import vendor
@@ -78,14 +90,20 @@
           imported in <code>src/style/rei-carousel.scss</code>.
         </cdr-checkbox>
         <cdr-checkbox size="large">
-          <cdr-text tag="span" class="body-strong">
+          <cdr-text
+            tag="span"
+            class="body-strong"
+          >
             Component is accessible.
           </cdr-text>
           REI has accessibility standards that your component must adhere to.
           Visit the "Accessibility" essential link to review.
         </cdr-checkbox>
         <cdr-checkbox size="large">
-          <cdr-text tag="span" class="body-strong">
+          <cdr-text
+            tag="span"
+            class="body-strong"
+          >
             Component has adequate unit tests.
           </cdr-text>
           The intializer scaffolds out a minimal test file in the
@@ -93,7 +111,10 @@
           the way you expect it to. Don't be stingy!
         </cdr-checkbox>
         <cdr-checkbox size="large">
-          <cdr-text tag="span" class="body-strong">
+          <cdr-text
+            tag="span"
+            class="body-strong"
+          >
             Component has a detailed <code>README.md</code>.
           </cdr-text>
           Consider the target consumers of your component. Your component's
@@ -101,7 +122,10 @@
           does it, and how it should be used. Include API information.
         </cdr-checkbox>
         <cdr-checkbox size="large">
-          <cdr-text tag="span" class="body-strong">
+          <cdr-text
+            tag="span"
+            class="body-strong"
+          >
             Update your <code>RELEASE-NOTES.md</code>
           </cdr-text>
           Use the <code>RELEASE-NOTES.md</code> template to document incremental
@@ -111,7 +135,10 @@
       </cdr-form-group>
     </section>
     <section class="component__essential-links">
-      <cdr-text class="component__sub-header" tag="h2">
+      <cdr-text
+        class="component__sub-header"
+        tag="h2"
+      >
         Essential links
       </cdr-text>
       <cdr-list modifier="inline">
@@ -145,7 +172,10 @@
       </cdr-list>
     </section>
     <section class="component__ecosystem">
-      <cdr-text class="component__sub-header" tag="h2">
+      <cdr-text
+        class="component__sub-header"
+        tag="h2"
+      >
         Ecosystem
       </cdr-text>
       <cdr-list modifier="inline">
@@ -211,7 +241,7 @@ defineProps({
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="scss" scoped>
-@import "@rei/cdr-tokens/dist/scss/cdr-tokens.scss";
+@import "@rei/cdr-tokens/dist/rei-dot-com/scss/cdr-tokens.scss";
 .component {
   p:not(:last-child) {
     margin-bottom: 1em;
