@@ -4,11 +4,14 @@
   "description": "An NPM initializer that scaffolds new NPM packages",
   "main": "dist/bin/main.mjs",
   "scripts": {
-    "build": "npm run clean && tsc",
+    "build": "npm run prepare",
+    "build-only": "npm run clean && tsc",
     "clean": "rimraf ./dist",
-    "prepare": "npm run lint && npm run test && npm run build",
+    "type-check": "tsc --noEmit",
+    "prepare": "npm run type-check && npm run lint && npm run test && npm run clean && tsc",
     "lint": "eslint . --ext .mts",
-    "test": "vitest run"
+    "test": "npm run unit -- --coverage",
+    "unit": "vitest run"
   },
   "bin": "bin/main.mjs",
   "files": [
@@ -24,6 +27,7 @@
     "@types/mustache": "^4.2.3",
     "@typescript-eslint/eslint-plugin": "^6.7.4",
     "@typescript-eslint/parser": "^6.7.4",
+    "@vitest/coverage-v8": "^0.34.6",
     "eslint": "^8.50.0",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-config-airbnb-typescript": "^17.1.0",
