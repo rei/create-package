@@ -2,6 +2,10 @@
   "name": "<%&packageName%>",
   "version": "1.0.0",
   "description": "<%&packageDescription%>",
+  "repository": {
+      "type": "git",
+      "url": "https://gitlab.com/rei/internal/product-engineering/<PROJECT ID>/<%&packageName%>"
+    },
   "scripts": {
     "prebuild": "satchel-cleaner",
     "type-check": "vue-tsc --noEmit",

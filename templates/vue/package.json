@@ -20,7 +20,7 @@
     ],
     "repository": {
       "type": "git",
-      "url": "https://git.rei.com/scm/fedpack/<%&packageName%>.git"
+      "url": "https://https://gitlab.com/rei/internal/product-engineering/FEDCOMP/<%&packageName%>.git"
     },
     "license": "UNLICENSED",
     "scripts": {
