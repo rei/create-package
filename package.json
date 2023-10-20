@@ -13,7 +13,7 @@
     "test": "npm run unit -- --coverage",
     "unit": "vitest run"
   },
-  "bin": "bin/main.mjs",
+  "bin": "dist/bin/main.mjs",
   "files": [
     "src",
     "bin",
