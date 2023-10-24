@@ -5,7 +5,7 @@
     "module": "NodeNext",
     "lib": ["ES2020", "DOM", "DOM.Iterable"],
     "skipLibCheck": true,
-    "declaration":  true,
+    "declaration": true,
     "outDir": "./dist",
     "esModuleInterop": true,
     "moduleResolution": "nodenext",
@@ -14,7 +14,5 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true
   },
- "include": [
-   "src", "types"
- ],
+  "include": ["src", "types"]
 }
