@@ -55,7 +55,7 @@
     "@rei/climber-details-page": "^11.0.3",
     "@rei/metrics": "^3.1.26",
     "@rei/ssr": "^3.0.1",
-    "@rei/vite-base-config": "^4.1.2",
+    "@rei/vite-base-config": "^4.1.3",
     "@rei/vite-plugin-alpine-uploader": "^1.1.1",
     "@vue/tsconfig": "^0.4.0",
     "vue": "^3.3.4"
