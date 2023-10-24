@@ -9,7 +9,7 @@
     "clean": "rimraf ./dist",
     "type-check": "tsc --noEmit",
     "prepare": "npm run type-check && npm run lint && npm run test && npm run clean && tsc",
-    "lint": "eslint . --ext .mts",
+    "lint": "eslint --ext .mts,.vue,.cjs .",
     "test": "npm run unit -- --coverage",
     "unit": "vitest run"
   },
