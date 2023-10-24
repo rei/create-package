@@ -2,7 +2,7 @@
   <<%&kebabComponentName%>-component />
 </template>
 
-<script setup>
+<script lang="ts" setup>
 import <%&camelComponentName%>Component from './<%&camelComponentName%>Component.vue';
 </script>
 
