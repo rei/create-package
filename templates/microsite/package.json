@@ -15,7 +15,7 @@
     "build:client": "vite build",
     "build:ssr": "vite build --config vite.config.ssr.mts",
     "dev": "vite",
-    "lint": "eslint --ext .mts --ext .vue ./src/main/js",
+    "lint": "eslint --ext .mts,.vue,.cjs .",
     "open-coverage": "vitest --run --coverage && open coverage/index.html",
     "ssr-install": "node ./node_modules/@rei/ssr/dist/install.mjs",
     "ssr-logs": "docker logs -f climbers-site-ssr",

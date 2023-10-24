@@ -22,7 +22,7 @@
     "license": "UNLICENSED",
     "scripts": {
       "dev": "vite --open",
-      "lint": "eslint --ext .mts src",
+      "lint": "eslint --ext .mts,.cjs .",
       "prepare": "npm-run-all type-check lint test build",
       "type-check": "tsc --noEmit",
       "build": "vite build",

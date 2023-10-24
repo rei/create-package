@@ -25,7 +25,7 @@
     "license": "UNLICENSED",
     "scripts": {
       "dev": "vite --open",
-      "lint": "eslint --ext .mts --ext .vue ./src",
+      "lint": "eslint --ext .mts,.vue,.cjs .",
       "prepare": "npm-run-all type-check lint test build",
       "build": "vite build",
       "test": "npm run unit -- --coverage",
