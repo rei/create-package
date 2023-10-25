@@ -27,7 +27,7 @@
     </cdr-text>
   </div>
 </template>
-<script>
+<script lang="ts">
 import { CdrText, CdrImg } from '@rei/cedar';
 import metrics from '@rei/metrics';
 
