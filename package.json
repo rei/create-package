@@ -15,6 +15,7 @@
   },
   "bin": "dist/bin/main.mjs",
   "files": [
+    "dist",
     "src",
     "bin",
     "templates",
