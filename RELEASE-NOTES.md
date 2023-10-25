@@ -1,5 +1,8 @@
 # Release Notes
 
+## 2.0.1
+- Include the dist directory in the files array in package.json.
+
 ## 2.0.0
 - From 2.0.0, `@rei/create-package` will template out TypeScript configuration and entry points. The 1.x versions will continue to template out JavaScript.
 - Refactor source code to TS.
