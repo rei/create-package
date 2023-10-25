@@ -6,15 +6,16 @@ import {
   packageAuthor,
   packageNameFilter,
   validateTemplateOption,
-} from '../src/util.mjs';
-import { createPackage } from '../src/api.mjs';
+} from '../util.mjs';
+
+import { createPackage } from '../api.mjs';
 
 const program = new Command();
 
 program
   .name('create-package')
   .description('An NPM initializer that scaffolds new NPM packages')
-  .version('1.0.0');
+  .version('2.0.0');
 
 program
   .command('interactive')
@@ -29,7 +30,7 @@ program
   .option(
     '-d, --desc <description>',
     'package description',
-    Defaults.PACKAGE_DESC
+    Defaults.PACKAGE_DESC,
   )
   .option('-a, --author <author-name>', 'package author')
   .option('-t, --template [vue|vanilla]', 'package template', Defaults.PACKAGE_TEMPLATE)

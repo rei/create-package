@@ -1,0 +1,11 @@
+{
+  "extends": "./node_modules/@rei/vite-base-config/tool-configs/typescript/tsconfig",
+  "include": [
+    "src/**/*.mts",
+    "test/**/*.mts",
+    "src/**/*.vue",
+    "vite*.config.mts",
+    "vite.config.ssr.mts",
+    ".eslintrc.cjs"
+  ],
+}

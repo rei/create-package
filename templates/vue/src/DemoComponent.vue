@@ -2,12 +2,12 @@
   <<%&kebabComponentName%>-component />
 </template>
 
-<script setup>
+<script lang="ts" setup>
 import <%&camelComponentName%>Component from './<%&camelComponentName%>Component.vue';
 </script>
 
 <style lang="scss">
-@import "@rei/cdr-tokens/dist/scss/cdr-tokens.scss";
+@import "@rei/cdr-tokens/dist/rei-dot-com/scss/cdr-tokens.scss";
 
 body {
   padding: 0 1em;

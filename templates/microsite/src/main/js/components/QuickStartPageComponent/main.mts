@@ -1,16 +1,16 @@
 import { createSSRApp } from 'vue'; // (2)
 import QuickStartPageComponent from './QuickStartPageComponent.vue'; // (1)
+import type { GenericStringKeyValueObject } from '../../types/shared.types.mjs';
 
-export default function createApp(props) {
+export default function createApp(props: GenericStringKeyValueObject) {
   const app = createSSRApp(QuickStartPageComponent, {
     ...props,
   });
   return { app };
 }
 
-function getClientPageData(pageDataId) {
-  const id = pageDataId || 'modelData';
-  const model = window.document.getElementById(id);
+export function getClientPageData(pageDataId = 'modelData') {
+  const model = window.document.getElementById(pageDataId);
   return model === null ? { pageData: {} } : JSON.parse(model.innerHTML);
 }
 

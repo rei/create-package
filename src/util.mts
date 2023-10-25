@@ -1,14 +1,14 @@
-/* eslint-disable import/extensions */
 import { exec } from 'child_process';
 import { getGitUserInfo } from 'git-user-info';
 import LoggerFactory from './logger.mjs';
 
 const logger = LoggerFactory({ label: '/util' });
 
-export const TemplateTypes = {
+export const TemplateTypes: { [type: string]: string } = {
   VUE: 'Vue 3 component',
-  VANILLA: 'Vanilla JavaScript library',
+  VANILLA: 'Vanilla TypeScript library',
   MICROSITE: 'Microsite front-end code (QuickStart)',
+  COMMON: 'Common template',
 };
 
 export const Defaults = {
@@ -19,22 +19,27 @@ export const Defaults = {
   PACKAGE_TEMPLATE: 'VUE', // Should map to TemplateTypes
 };
 
-export function packageNameFilter(val) {
+/**
+ *
+ * @param val
+ * @returns
+ */
+export function packageNameFilter(val: string) {
   return val
     .trim()
     .split(/\s/g)
-    .map((str) => str.replace(/[^0-9a-zA-Z_-]/g, '').toLowerCase())
+    .map((str: string) => str.replace(/[^0-9a-zA-Z_-]/g, '').toLowerCase())
     .join('-');
 }
 
-export function validateTemplateOption(templateChoice) {
+export function validateTemplateOption(templateChoice: string) {
   const allowedTemplates = Object.keys(TemplateTypes).map((key) => key.toLowerCase());
   const templateType = TemplateTypes[templateChoice.toUpperCase()];
   if (templateType) {
     return templateType;
   }
   throw new Error(
-    `'${templateChoice}' is an invalid template choice. Valid templates: ${allowedTemplates.join(' or ')}`
+    `'${templateChoice}' is an invalid template choice. Valid templates: ${allowedTemplates.join(' or ')}`,
   );
 }
 
@@ -50,12 +55,12 @@ export async function packageAuthor() {
   return Defaults.PACKAGE_AUTHOR;
 }
 
-export async function run(cmd) {
+export async function run(cmd: string) {
   const child = exec(cmd, (err) => {
     if (err) logger.error(err);
   });
-  child.stderr.pipe(process.stderr);
-  child.stdout.pipe(process.stdout);
+  child.stderr?.pipe(process.stderr);
+  child.stdout?.pipe(process.stdout);
   await new Promise((resolve) => {
     child.on('close', resolve);
   });

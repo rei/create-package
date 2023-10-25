@@ -1,4 +1,12 @@
-# Release notes
+# Release Notes
+
+## 2.0.0
+- From 2.0.0, `@rei/create-package` will template out TypeScript configuration and entry points. The 1.x versions will continue to template out JavaScript.
+- Refactor source code to TS.
+- Update templates to scaffold TS.
+- Add unit tests.
+- Update Chairlift Node.js version from 16.13 -> 16.20
+- Align `tsconfig.json` and `.eslintrc.cjs` to extend from centralized configs in `@rei/vite-base-config`.
 
 ## 1.3.1
 
