@@ -23,7 +23,7 @@
     "scripts": {
       "dev": "vite --open",
       "lint": "eslint --ext .mts,.cjs .",
-      "prepare": "npm-run-all type-check lint test build",
+      "prepare": "npm run type-check && npm run lint && npm run test && npm run build",
       "type-check": "tsc --noEmit",
       "build": "vite build",
       "test": "npm run unit -- --coverage",
@@ -45,7 +45,6 @@
       "eslint-config-airbnb-typescript": "^17.1.0",
       "eslint-plugin-import": "^2.26.0",
       "jsdom": "^22.1.0",
-      "npm-run-all": "^4.1.5",
       "typescript": "^5.2.2",
       "vite": "^4.0.0",
       "vitest": "^0.34.4"

@@ -1,5 +1,8 @@
 # Release Notes
 
+## 2.0.2
+- Remove unneeded dependency.
+
 ## 2.0.1
 - Include the dist directory in the files array in package.json.
 
