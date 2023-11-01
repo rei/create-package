@@ -26,7 +26,7 @@
     "scripts": {
       "dev": "vite --open",
       "lint": "eslint --ext .mts,.vue,.cjs .",
-      "prepare": "npm-run-all type-check lint test build",
+      "prepare": "npm run type-check && npm run lint && npm run test && npm run build",
       "build": "vite build",
       "test": "npm run unit -- --coverage",
       "type-check": "vue-tsc --noEmit",
@@ -55,7 +55,6 @@
       "eslint-plugin-import": "^2.28.1",
       "eslint-plugin-vue": "^9.17.0",
       "jsdom": "^22.1.0",
-      "npm-run-all": "^4.1.5",
       "typescript": "^5.2.2",
       "vite": "^4.4.9",
       "vitest": "^0.34.4",
