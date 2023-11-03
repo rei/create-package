@@ -1,5 +1,8 @@
 # Release Notes
 
+## 2.0.3
+- Fix types/main/module entries in templated `package.json`s.
+
 ## 2.0.2
 - Remove unneeded dependency.
 
