@@ -1,5 +1,8 @@
 # Release Notes
 
+## 2.0.4
+- Fix unit coverage stats calls in package.jsons.
+
 ## 2.0.3
 - Fix types/main/module entries in templated `package.json`s.
 

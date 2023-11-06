@@ -20,7 +20,6 @@
     "ssr-install": "node ./node_modules/@rei/ssr/dist/install.mjs",
     "ssr-logs": "docker logs -f climbers-site-ssr",
     "test": "npm run lint && npm run unit",
-    "posttest": "send-cov-stats",
     "test:watch": "vitest --coverage --watch",
     "unit": "vitest run --coverage",
     "update-snapshot": "vitest -u"

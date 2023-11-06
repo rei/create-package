@@ -25,6 +25,7 @@
       "dev": "vite --open",
       "lint": "eslint --ext .mts,.vue,.cjs .",
       "prepare": "npm run type-check && npm run lint && npm run test && npm run build",
+      "postprepare": "send-cov-stats",
       "build": "vite build",
       "test": "npm run unit -- --coverage",
       "type-check": "vue-tsc --noEmit",
