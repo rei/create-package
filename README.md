@@ -3,9 +3,10 @@
 The officially supported way to create NPM packages at [REI](https://www.rei.com/).
 
 With `@rei/create-package`, you can quickly scaffold:
+
 - a [Vue](https://vuejs.org/) component compiled by [Vite](https://vitejs.dev/) and configured with REI default settings
 - a vanilla TypeScript library that's ready to be imported into your application
-- Alpine microsite front-end code and configuration 
+- Alpine microsite front-end code and configuration
 
 Report bugs in the [issues](https://github.com/rei/create-package/issues) tab.
 
@@ -14,7 +15,9 @@ Report bugs in the [issues](https://github.com/rei/create-package/issues) tab.
 ```sh
 npx @rei/create-package@^1 #(JavaScript)
 ```
+
 or
+
 ```sh
 npx @rei/create-package@^2 #(TypeScript)
 ```
@@ -25,7 +28,7 @@ npx @rei/create-package@^2 #(TypeScript)
 
 ## TypeScript and JavaScript versions
 
-The initializer can scaffold out either JavaScript  or TypeScript code depending on the version you run the initializer with. If you don't specify the version, the initializer will default to the latest version, currently `2.^` (TypeScript).
+The initializer can scaffold out either JavaScript or TypeScript code depending on the version you run the initializer with. If you don't specify the version, the initializer will default to the latest version, currently `2.^` (TypeScript).
 
 ## CLI
 
@@ -47,7 +50,7 @@ npx @rei/create-package --name carousel
 npx @rei/create-package --name lib --template vanilla
 ```
 
-- Microsite code and configuration. This scaffolds out the front-end [QuickStart microsite code](https://git.rei.com/projects/QM/repos/quickstart-microsite/browse) and build/test configuration. 
+- Microsite code and configuration. This scaffolds out the front-end [QuickStart microsite code](https://git.rei.com/projects/QM/repos/quickstart-microsite/browse) and build/test configuration.
 
 From the front-end root package directory:
 
@@ -63,15 +66,15 @@ Use "interactive mode" to follow command prompts to generate an NPM package.
 
 `-n, --name <package-name>`
 
-The name of the NPM package we're intializing. Defaults to `my-package`
+The name of the NPM package we're initializing. Defaults to `my-package`
 
 `-d, --desc <description>`
 
-The description of the NPM package we're intializing. Defaults to `description`
+The description of the NPM package we're initializing. Defaults to `description`
 
 `-a, --author <author-name>`
 
-The author of the NPM package we're intializing. Attempts to resolve the user's git username and email, otherwise defaults to `REI`.
+The author of the NPM package we're initializing. Attempts to resolve the user's git username and email, otherwise defaults to `REI`.
 
 `-t, --template [vue|vanilla|microsite]`
 
@@ -97,7 +100,7 @@ Templates are divided by type in their directories. Template directories contain
 @rei/create-package
 ├── templates
 │   ├── common
-│   │   ├── .chairlift.yml
+│   │   ├── .gitlab-ci.yml
 │   │   └── .npmrc
 │   ├── vue
 │   ├── vanilla
@@ -117,6 +120,10 @@ Templates are divided by type in their directories. Template directories contain
 This tool helps you scaffold out a new NPM package but it doesn't set up source control management (SCM) or a CI/CD pipeline, features that you'll want to facilitate the growth and maturity of your package.
 
 REI uses an internal tool called Chairlift that sets up SCM and a CI/CD pipeline for your new package. It has an `npm-package-template` containing a bare-bones file structure with instructions on running this initializer.
+
+## GitLab CI
+
+- TODO: explain
 
 ## Contributing
 

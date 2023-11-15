@@ -1,4 +1,0 @@
-businessUnit: dr
-projectType: npm-package
-nodejs:
-    version: <%&CHAIRLIFT_NODE_VERSION%>
