@@ -1,8 +1,13 @@
 # Release Notes
 
-## 2.0.5
+## 2.1.0
 
-- Stuff...
+## Changes
+
+- For Vue and Vanilla NPM package templates, replaces `.chairlift.yml` for `.gitlab-ci.yml`.
+  - Adds Node version in `.env`
+- Adds `tsconfig.tsbuildinfo` to all `.gitignore` files
+- Corrects pointers to type declaration files in `package.json`.
 
 ## 2.0.4
 

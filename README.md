@@ -115,15 +115,11 @@ Templates are divided by type in their directories. Template directories contain
 
 `@rei/create-packages` uses `dotenv` (and `.env`) to hold configuration variables that are injected into necessary templates.
 
-## Integration with Chairlift
+## GitLab CI
 
 This tool helps you scaffold out a new NPM package but it doesn't set up source control management (SCM) or a CI/CD pipeline, features that you'll want to facilitate the growth and maturity of your package.
 
-REI uses an internal tool called Chairlift that sets up SCM and a CI/CD pipeline for your new package. It has an `npm-package-template` containing a bare-bones file structure with instructions on running this initializer.
-
-## GitLab CI
-
-- TODO: explain
+We use GitLab for SCM and CI/CD. Create a new project in GitLab and use `@rei/create-package` to scaffold it. When creating an NPM package, `@rei/create-package` includes a `.gitlab-ci.yml`, which sets up the necessary pipelines you'll need downstream.
 
 ## Contributing
 
