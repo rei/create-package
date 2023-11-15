@@ -1,0 +1,5 @@
+include:
+  - project: 'rei/internal/platform-engineering/developer-platforms/ci-cd'
+    file: 'npm-library.gitlab-ci.yml'
+    inputs:
+      nodejs_version: "<%&GITLAB_CI_NODE_VERSION%>"

@@ -11,3 +11,5 @@ coverage/
 *.ntvs*
 *.njsproj
 *.sln
+*.tgz
+tsconfig.tsbuildinfo
