@@ -1,5 +1,9 @@
 # Release Notes
 
+## 2.1.1
+
+- Removes nodejs_version from gitlab-ci template. Packages will use the default node version from the extended `.gitlab-ci.yml` and can override on a per-package basis.
+
 ## 2.1.0
 
 ## Changes
