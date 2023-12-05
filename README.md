@@ -23,7 +23,7 @@ npx @rei/create-package@^2 #(TypeScript)
 ```
 
 <p align='center'>
-<img src='https://www.rei.com/satchel/media/img/rei-create-package.gif' alt='npx @rei/create-package' width="500">
+<img src='./rei-create-package.gif' alt='npx @rei/create-package' width="500">
 </p>
 
 ## TypeScript and JavaScript versions
