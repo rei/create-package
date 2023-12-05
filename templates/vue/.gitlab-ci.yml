@@ -1,3 +1,6 @@
 include:
   - project: 'rei/internal/platform-engineering/developer-platforms/ci-cd'
     file: 'npm-library.gitlab-ci.yml'
+default:
+  tags:
+  - digret-prod
