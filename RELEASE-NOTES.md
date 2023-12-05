@@ -5,7 +5,8 @@
 - Extracted types to designated file
 - Sorted templatized `package.json`s
 - Bumped various deps in templates
-- Fixed issue where `.npmrc` was not being packed in the tarball when published to the registry. We pack a `npmrc` file instead of `.npmrc` and rename it to `.npmrc` at runtime.
+- Closes #15 where `.npmrc` was not being packed in the tarball when published to the registry. We pack a `npmrc` file instead of `.npmrc` and rename it to `.npmrc` at runtime
+- Adds `digret-prod` to templates' `.gitlab-ci.yml`
 
 ## 2.1.1
 
