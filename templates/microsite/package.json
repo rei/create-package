@@ -1,32 +1,45 @@
 {
   "name": "<%&packageName%>",
   "version": "1.0.0",
+  "private": true,
   "description": "<%&packageDescription%>",
   "repository": {
-      "type": "git",
-      "url": "https://gitlab.com/rei/internal/product-engineering/<PROJECT ID>/<%&packageName%>"
-    },
+    "type": "git",
+    "url": "https://gitlab.com/rei/internal/product-engineering/<PROJECT ID>/<%&packageName%>"
+  },
+  "license": "UNLICENSED",
+  "author": "REI",
   "scripts": {
     "prebuild": "satchel-cleaner",
-    "type-check": "vue-tsc --noEmit",
     "build": "npm run type-check && npm run test && npm run build:client && npm run build:ssr",
     "postbuild": "send-cov-stats",
     "build-only": "npm run build",
     "build:client": "vite build",
     "build:ssr": "vite build --config vite.config.ssr.mts",
-    "dev": "vite",
+    "dev": "vite --open",
     "lint": "eslint --ext .mts,.vue,.cjs .",
     "open-coverage": "vitest --run --coverage && open coverage/index.html",
     "ssr-install": "node ./node_modules/@rei/ssr/dist/install.mjs",
-    "ssr-logs": "docker logs -f climbers-site-ssr",
+    "ssr-logs": "docker logs -f <%&packageName%>-site-ssr",
     "test": "npm run lint && npm run unit",
     "test:watch": "vitest --coverage --watch",
+    "type-check": "vue-tsc --noEmit",
     "unit": "vitest run --coverage",
     "update-snapshot": "vitest -u"
   },
-  "author": "REI",
-  "license": "UNLICENSED",
-  "private": true,
+  "dependencies": {
+    "@rei/alpine-satchel-cleaner": "^2.0.0",
+    "@rei/cdr-component-variables": "8.0.0",
+    "@rei/cdr-tokens": "^12.0.0",
+    "@rei/cedar": "^14.0.1",
+    "@rei/climber-details-page": "^11.0.3",
+    "@rei/metrics": "^3.1.26",
+    "@rei/ssr": "^4.0.0",
+    "@rei/vite-base-config": "^4.1.3",
+    "@rei/vite-plugin-alpine-uploader": "^2.0.0",
+    "@vue/tsconfig": "^0.4.0",
+    "vue": "^3.3.4"
+  },
   "devDependencies": {
     "@rei/cov-stats": "^1.5.1",
     "@typescript-eslint/eslint-plugin": "^6.7.2",
@@ -45,18 +58,5 @@
     "vitest": "^0.34.4",
     "vue-eslint-parser": "^9.3.1",
     "vue-tsc": "^1.8.13"
-  },
-  "dependencies": {
-    "@rei/alpine-satchel-cleaner": "^1.0.0",
-    "@rei/cdr-component-variables": "8.0.0",
-    "@rei/cdr-tokens": "^12.0.0",
-    "@rei/cedar": "^14.0.1",
-    "@rei/climber-details-page": "^11.0.3",
-    "@rei/metrics": "^3.1.26",
-    "@rei/ssr": "^3.0.1",
-    "@rei/vite-base-config": "^4.1.3",
-    "@rei/vite-plugin-alpine-uploader": "^1.1.1",
-    "@vue/tsconfig": "^0.4.0",
-    "vue": "^3.3.4"
   }
 }

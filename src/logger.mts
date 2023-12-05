@@ -5,7 +5,10 @@ import {
 /**
  * Logger factory using 'winston'
  */
-export default function LoggerFactory({ level = 'info', label = '' } = {}): Logger {
+export default function LoggerFactory({
+  level = 'info',
+  label = '',
+} = {}): Logger {
   const trans = [new transports.Console({ level })];
   return createLogger({
     format: format.combine(

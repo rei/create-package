@@ -39,7 +39,9 @@ export function validateTemplateOption(templateChoice: string) {
     return templateType;
   }
   throw new Error(
-    `'${templateChoice}' is an invalid template choice. Valid templates: ${allowedTemplates.join(' or ')}`,
+    `'${templateChoice}' is an invalid template choice. Valid templates: ${allowedTemplates.join(
+      ' or ',
+    )}`,
   );
 }
 

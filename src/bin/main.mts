@@ -33,11 +33,12 @@ program
     Defaults.PACKAGE_DESC,
   )
   .option('-a, --author <author-name>', 'package author')
-  .option('-t, --template [vue|vanilla]', 'package template', Defaults.PACKAGE_TEMPLATE)
   .option(
-    '--no-dir',
-    'Output to the current working directory',
+    '-t, --template [vue|vanilla]',
+    'package template',
+    Defaults.PACKAGE_TEMPLATE,
   )
+  .option('--no-dir', 'Output to the current working directory')
   .action(async (answers) => {
     let { author } = answers;
     const {
