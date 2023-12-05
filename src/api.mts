@@ -8,6 +8,7 @@ import { fileURLToPath } from 'node:url';
 import { Stats } from 'node:fs';
 import LoggerFactory from './logger.mjs';
 import { TemplateTypes, run } from './util.mjs';
+import { ComponentNames, Answer } from './types/index.mjs';
 
 const logger = LoggerFactory({ label: '/api' });
 const DIRNAME = path.dirname(fileURLToPath(import.meta.url));
@@ -25,19 +26,6 @@ export const TemplatePaths = {
   MICROSITE: path.resolve(TEMPLATE_DIR, 'microsite'),
 };
 
-interface ComponentNames {
-  kebabComponentName?: string,
-  camelComponentName?: string,
-}
-
-interface Answer {
-  packageName: string,
-  packageDescription: string,
-  packageAuthor: string,
-  packageTemplate: string,
-  namespacedDir: string
-}
-
 type GenerateData = ComponentNames & dotenv.DotenvParseOutput & Answer;
 
 async function generate({
@@ -45,7 +33,12 @@ async function generate({
   packageTemplate,
   packageWorkingDir,
   data,
-}: { walkPath: string, packageTemplate: string, packageWorkingDir: string, data: GenerateData }) {
+}: {
+  walkPath: string;
+  packageTemplate: string;
+  packageWorkingDir: string;
+  data: GenerateData;
+}) {
   await walk(walkPath, async (err: Error, pathname: string, dirent: Stats) => {
     try {
       if (err) {
@@ -67,10 +60,10 @@ async function generate({
         // Addresses https://github.com/npm/npm/issues/7252
         if (packageTemplate === TemplateTypes.COMMON) {
           if (filePath.includes('gitignore')) {
-            filePath = filePath.replace(
-              'gitignore',
-              '.gitignore',
-            );
+            filePath = filePath.replace('gitignore', '.gitignore');
+          }
+          if (filePath.includes('npmrc')) {
+            filePath = filePath.replace('npmrc', '.npmrc');
           }
         }
 
@@ -154,7 +147,13 @@ export async function createPackage({ answers }: { answers: Answer }) {
     await fs.mkdir(PACKAGE_WORKING_DIR, { recursive: true });
   }
 
-  logger.info(`Creating ${isMicrosite ? `${packageTemplate}` : `a new ${packageTemplate} in ${PACKAGE_WORKING_DIR}`}`);
+  logger.info(
+    `Creating ${
+      isMicrosite
+        ? `${packageTemplate}`
+        : `a new ${packageTemplate} in ${PACKAGE_WORKING_DIR}`
+    }`,
+  );
 
   // Walk the "common" templates, rendering them with data from {@link answers}
   // and the {@link CONFIG}, writing them to the appropriate directory based

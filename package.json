@@ -1,18 +1,17 @@
 {
   "name": "@rei/create-package",
-  "version": "2.1.1",
+  "version": "2.2.0",
   "description": "An NPM initializer that scaffolds new NPM packages",
-  "main": "dist/bin/main.mjs",
-  "scripts": {
-    "build": "npm run prepare",
-    "build-only": "npm run clean && tsc",
-    "clean": "rimraf ./dist",
-    "type-check": "tsc --noEmit",
-    "prepare": "npm run type-check && npm run lint && npm run test && npm run clean && tsc",
-    "lint": "eslint --ext .mts,.vue,.cjs .",
-    "test": "npm run unit -- --coverage",
-    "unit": "vitest run"
+  "bugs": {
+    "url": "https://github.com/rei/create-package/issues"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rei/create-package.git"
+  },
+  "license": "UNLICENSED",
+  "author": "REI",
+  "main": "dist/bin/main.mjs",
   "bin": "dist/bin/main.mjs",
   "files": [
     "dist",
@@ -22,20 +21,15 @@
     "templates/common/.npmrc",
     ".env"
   ],
-  "author": "REI",
-  "license": "UNLICENSED",
-  "devDependencies": {
-    "@types/mustache": "^4.2.3",
-    "@typescript-eslint/eslint-plugin": "^6.7.4",
-    "@typescript-eslint/parser": "^6.7.4",
-    "@vitest/coverage-v8": "^0.34.6",
-    "eslint": "^8.50.0",
-    "eslint-config-airbnb-base": "^15.0.0",
-    "eslint-config-airbnb-typescript": "^17.1.0",
-    "eslint-plugin-import": "^2.26.0",
-    "eslint-plugin-vue": "^9.17.0",
-    "rimraf": "^5.0.5",
-    "typescript": "^5.2.2"
+  "scripts": {
+    "build": "npm run prepare",
+    "build-only": "npm run clean && tsc",
+    "clean": "rimraf ./dist",
+    "lint": "eslint --ext .mts,.vue,.cjs .",
+    "prepare": "npm run type-check && npm run lint && npm run test && npm run clean && tsc",
+    "test": "npm run unit -- --coverage",
+    "type-check": "tsc --noEmit",
+    "unit": "vitest run"
   },
   "dependencies": {
     "@root/walk": "^1.1.0",
@@ -51,11 +45,17 @@
     "vitest": "^0.34.6",
     "winston": "^3.8.2"
   },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/rei/create-package.git"
-  },
-  "bugs": {
-    "url": "https://github.com/rei/create-package/issues"
+  "devDependencies": {
+    "@types/mustache": "^4.2.3",
+    "@typescript-eslint/eslint-plugin": "^6.7.4",
+    "@typescript-eslint/parser": "^6.7.4",
+    "@vitest/coverage-v8": "^0.34.6",
+    "eslint": "^8.50.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-config-airbnb-typescript": "^17.1.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-vue": "^9.17.0",
+    "rimraf": "^5.0.5",
+    "typescript": "^5.2.2"
   }
 }

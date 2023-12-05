@@ -2,25 +2,30 @@ import { expect, vi } from 'vitest';
 import * as api from './util.mjs';
 
 vi.mock('git-user-info', async (o) => {
-  const mod:object = await o();
+  const mod: object = await o();
 
-  const getGitUserInfoMock = vi.fn()
+  const getGitUserInfoMock = vi
+    .fn()
     .mockImplementationOnce(async () => ({
       name: 'Bill The Cat',
       email: 'billthecat@pbthpbth.com',
     }))
-    .mockImplementationOnce(async () => ({
-    }));
+    .mockImplementationOnce(async () => ({}));
 
   return {
-    ...mod as object,
+    ...(mod as object),
     getGitUserInfo: getGitUserInfoMock,
   };
 });
 
 describe('API methods', () => {
   it('should exist', () => {
-    expect(api.TemplateTypes).to.contain.keys(['COMMON', 'VUE', 'VANILLA', 'MICROSITE']);
+    expect(api.TemplateTypes).to.contain.keys([
+      'COMMON',
+      'VUE',
+      'VANILLA',
+      'MICROSITE',
+    ]);
     expect(api.packageAuthor).to.be.a('function');
     expect(api.packageNameFilter).to.be.a('function');
     expect(api.run).to.be.a('function');
@@ -31,8 +36,12 @@ describe('API methods', () => {
 describe('packageNameFilter', () => {
   it('should return appropriate package names', () => {
     expect(api.packageNameFilter('Microsite Lib')).equals('microsite-lib');
-    expect(api.packageNameFilter('Another Amazing Site')).equals('another-amazing-site');
-    expect(api.packageNameFilter('  So    many   SPaceS   ')).equals('so----many---spaces');
+    expect(api.packageNameFilter('Another Amazing Site')).equals(
+      'another-amazing-site',
+    );
+    expect(api.packageNameFilter('  So    many   SPaceS   ')).equals(
+      'so----many---spaces',
+    );
     expect(api.packageNameFilter('Site number 42')).equals('site-number-42');
   });
 });

@@ -1,5 +1,12 @@
 # Release Notes
 
+## 2.2.0
+
+- Extracted types to designated file
+- Sorted templatized `package.json`s
+- Bumped various deps in templates
+- Fixed issue where `.npmrc` was not being packed in the tarball when published to the registry. We pack a `npmrc` file instead of `.npmrc` and rename it to `.npmrc` at runtime.
+
 ## 2.1.1
 
 - Removes nodejs_version from gitlab-ci template. Packages will use the default node version from the extended `.gitlab-ci.yml` and can override on a per-package basis.

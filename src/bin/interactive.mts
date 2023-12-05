@@ -42,7 +42,11 @@ export default async function interactive() {
         name: 'packageTemplate',
         message: 'What kind of NPM package are you creating?',
         default: TemplateTypes.VUE,
-        choices: [TemplateTypes.VUE, TemplateTypes.VANILLA, TemplateTypes.MICROSITE],
+        choices: [
+          TemplateTypes.VUE,
+          TemplateTypes.VANILLA,
+          TemplateTypes.MICROSITE,
+        ],
       },
       {
         type: 'confirm',
