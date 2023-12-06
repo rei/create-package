@@ -1,5 +1,9 @@
 # Release Notes
 
+## 2.2.1
+- Adding `index.html` file for running the dev server during microsite app development.
+- Update `.nvmrc` to use LTS.
+
 ## 2.2.0
 
 - Extracted types to designated file
