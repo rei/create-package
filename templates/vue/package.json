@@ -27,14 +27,12 @@
     "dev": "vite --open",
     "lint": "eslint --ext .mts,.vue,.cjs .",
     "prepare": "npm run type-check && npm run lint && npm run test && npm run build",
-    "postprepare": "send-cov-stats",
     "test": "npm run unit -- --coverage",
     "type-check": "vue-tsc --noEmit",
     "unit": "vitest run"
   },
   "dependencies": {},
   "devDependencies": {
-    "@rei/cov-stats": "^1.5.1",
     "@rei/vite-base-config": "^4",
     "@typescript-eslint/eslint-plugin": "^6.7.2",
     "@typescript-eslint/parser": "^6.7.2",
