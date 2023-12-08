@@ -1,6 +1,6 @@
 {
   "name": "@rei/create-package",
-  "version": "2.2.0",
+  "version": "2.3.0",
   "description": "An NPM initializer that scaffolds new NPM packages",
   "bugs": {
     "url": "https://github.com/rei/create-package/issues"

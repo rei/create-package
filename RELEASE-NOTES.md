@@ -1,5 +1,9 @@
 # Release Notes
 
+## 2.3.0
+
+- Removing @rei/cov-stats from vanilla and vue templates. This is automatically run in the GL pipeline.
+
 ## 2.2.0
 
 - Extracted types to designated file
