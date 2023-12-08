@@ -3,6 +3,7 @@
 ## 2.3.0
 
 - Removing @rei/cov-stats from vanilla and vue templates. This is automatically run in the GL pipeline.
+- Removing node versions in .env. Defaulting to LTS version in packages now to keep inline with GL pipeline set to LTS.
 
 ## 2.2.0
 
