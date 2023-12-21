@@ -7,7 +7,7 @@
 
 ## 2.3.1
 
-- Update the metrics call using the \__PROJECT_NAME_ global.
+- Update the metrics call using the __PROJECT_NAME_ global.
 - Remove extraneous quotes in GL configs.
 - Auto-fix sec vuln reported by `npm audit`.
 
