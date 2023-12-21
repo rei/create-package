@@ -1,7 +1,13 @@
 # Release Notes
 
+## 2.4.0
+
+- Setting depedency versions using variables defined in config. This synchronizes dep versions between templates and reduces the number of manual edits needed.
+- Removes `@rei/cov-stats` since its integrated into GitLab CI pipelines now.
+
 ## 2.3.1
-- Update the metrics call using the __PROJECT_NAME_ global.
+
+- Update the metrics call using the \__PROJECT_NAME_ global.
 - Remove extraneous quotes in GL configs.
 - Auto-fix sec vuln reported by `npm audit`.
 
@@ -11,6 +17,7 @@
 - Removing node versions in .env. Defaulting to LTS version in packages now to keep inline with GL pipeline set to LTS.
 
 ## 2.2.1
+
 - Adding `index.html` file for running the dev server during microsite app development.
 - Update `.nvmrc` to use LTS.
 
