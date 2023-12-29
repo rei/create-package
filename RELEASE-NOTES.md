@@ -1,19 +1,23 @@
 # Release Notes
 
+## 2.4.1
+
+- Changing the call to `metrics.view` to accommodate the stringified `package.json.name` from `@rei/vite-base-config`.
+
 ## 2.4.0
 
-- Setting depedency versions using variables defined in config. This synchronizes dep versions between templates and reduces the number of manual edits needed.
-- Removes `@rei/cov-stats` since its integrated into GitLab CI pipelines now.
+- Setting dependency versions using variables defined in config. This synchronizes dep versions between templates and reduces the number of manual edits needed.
+- Removes `@rei/cov-stats` since it's integrated into GitLab CI pipelines now.
 
 ## 2.3.1
 
-- Update the metrics call using the __PROJECT_NAME_ global.
+- Update the metrics call using the \__PROJECT_NAME_ global.
 - Remove extraneous quotes in GL configs.
 - Auto-fix sec vuln reported by `npm audit`.
 
 ## 2.3.0
 
-- Removing @rei/cov-stats from vanilla and vue templates. This is automatically run in the GL pipeline.
+- Removing `@rei/cov-stats` from vanilla and vue templates. This is automatically run in the GL pipeline.
 - Removing node versions in .env. Defaulting to LTS version in packages now to keep inline with GL pipeline set to LTS.
 
 ## 2.2.1
@@ -23,7 +27,7 @@
 
 ## 2.2.0
 
-- Extracted types to designated file
+- Extracted types to a designated file
 - Sorted templatized `package.json`s
 - Bumped various deps in templates
 - Closes #15 where `.npmrc` was not being packed in the tarball when published to the registry. We pack a `npmrc` file instead of `.npmrc` and rename it to `.npmrc` at runtime
