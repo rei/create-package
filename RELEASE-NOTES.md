@@ -2,7 +2,7 @@
 
 ## 2.4.1
 
-- Changing the call to `metrics.view` to accommodate the stringified `package.json.name` from `@rei/vite-base-config`.
+- Changing the call to `metrics.view` to accommodate the stringified `__PROJECT_NAME__` global variable from `@rei/vite-base-config`.
 
 ## 2.4.0
 
@@ -11,7 +11,7 @@
 
 ## 2.3.1
 
-- Update the metrics call using the \__PROJECT_NAME_ global.
+- Update the metrics call using the `__PROJECT_NAME__` global.
 - Remove extraneous quotes in GL configs.
 - Auto-fix sec vuln reported by `npm audit`.
 
