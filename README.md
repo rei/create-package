@@ -10,6 +10,12 @@ With `@rei/create-package`, you can quickly scaffold:
 
 Report bugs in the [issues](https://github.com/rei/create-package/issues) tab.
 
+## Prerequisites
+
+Be sure to update/install your hardshell token to allow the initializer to scaffold out a `trailmix.yaml` file with appropriate team owner assigned to the package. 
+
+*Every package should have an associated team owner in order to maintain the code throughout the package's lifetime.*
+
 ## Usage
 
 ```sh

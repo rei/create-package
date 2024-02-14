@@ -7,6 +7,7 @@ import {
   Defaults,
   packageNameFilter,
   packageAuthor,
+  getUserTeam,
 } from '../util.mjs';
 
 const logger: Logger = LoggerFactory({ label: '/interactive' });
@@ -36,6 +37,13 @@ export default async function interactive() {
         name: 'packageAuthor',
         message: 'Who is the author of this package?',
         default: async () => packageAuthor(),
+      },
+      {
+        type: 'input',
+        name: 'packageOwnerTeamId',
+        message: 'What team will own this package? (See team.rei-cloud.com for your team id)',
+        validate: (teamId) => (teamId ? true : 'Please enter a valid team id.'),
+        default: async () => getUserTeam(),
       },
       {
         type: 'rawlist',

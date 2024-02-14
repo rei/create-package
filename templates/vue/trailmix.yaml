@@ -1,0 +1,11 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: <%&packageName%>
+  description: <%packageDescription%>
+  labels:
+    businessUnit: "dr"
+spec:
+  type: library
+  owner: group:<%packageOwnerTeamId%>
+  lifecycle: production

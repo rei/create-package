@@ -1,5 +1,9 @@
 # Release Notes
 
+## 2.5.0
+
+- Looks up developer team id and scaffolds out trailmix.yaml file with the owner team id for vanilla and Vue components.
+
 ## 2.4.1
 
 - Changing the call to `metrics.view` to accommodate the stringified `__PROJECT_NAME__` global variable from `@rei/vite-base-config`.
