@@ -6,6 +6,7 @@ import {
   packageAuthor,
   packageNameFilter,
   validateTemplateOption,
+  getUserTeam,
 } from '../util.mjs';
 
 import { createPackage } from '../api.mjs';
@@ -15,7 +16,7 @@ const program = new Command();
 program
   .name('create-package')
   .description('An NPM initializer that scaffolds new NPM packages')
-  .version('2.0.0');
+  .version('2.5.0');
 
 program
   .command('interactive')
@@ -34,15 +35,16 @@ program
   )
   .option('-a, --author <author-name>', 'package author')
   .option(
-    '-t, --template [vue|vanilla]',
+    '-t, --template [vue|vanilla|microsite]',
     'package template',
     Defaults.PACKAGE_TEMPLATE,
   )
+  .option('-o, --owner <package-owner-team-id>', 'Owner team id (from team.rei-cloud.com)', '')
   .option('--no-dir', 'Output to the current working directory')
   .action(async (answers) => {
     let { author } = answers;
     const {
-      name, desc, template, dir,
+      name, desc, template, dir, owner,
     } = answers;
     if (!author) {
       author = await packageAuthor();
@@ -52,6 +54,7 @@ program
         packageName: packageNameFilter(name),
         packageDescription: desc,
         packageAuthor: author,
+        packageOwnerTeamId: owner || await getUserTeam(),
         packageTemplate: validateTemplateOption(template),
         namespacedDir: dir,
       },
