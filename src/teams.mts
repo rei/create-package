@@ -1,5 +1,5 @@
-import { userInfo, homedir } from 'os';
-import { readFileSync } from 'fs';
+import { userInfo, homedir } from 'node:os';
+import { readFile } from 'node:fs/promises';
 import LoggerFactory from './logger.mjs';
 
 const logger = LoggerFactory();
@@ -25,11 +25,11 @@ const getTeam = (
   )?.id;
 
 /* c8 ignore start */
-const getHardshellToken = () => readFileSync(`${homedir()}/hardshell.jwt`, 'utf-8');
+const getHardshellToken = async () => readFile(`${homedir()}/hardshell.jwt`, 'utf-8');
 
 const getAllTeams = async () => {
   const headers = new Headers();
-  headers.set('Authorization', `Bearer ${getHardshellToken()}`);
+  headers.set('Authorization', `Bearer ${await getHardshellToken()}`);
   logger.info('Looking up team...');
   const response = await fetch(teamsUrl, { headers });
   const allTeams = await response.json();
