@@ -10,5 +10,6 @@ export interface Answer {
   packageAuthor: string;
   packageTemplate: string;
   namespacedDir: string;
+  packageOwnerTeamId: string;
 }
 /* c8 ignore end */

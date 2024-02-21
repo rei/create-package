@@ -1,6 +1,7 @@
 import { exec } from 'child_process';
 import { getGitUserInfo } from 'git-user-info';
 import LoggerFactory from './logger.mjs';
+import getUserTeam from './teams.mjs';
 
 const logger = LoggerFactory({ label: '/util' });
 
@@ -67,3 +68,5 @@ export async function run(cmd: string) {
     child.on('close', resolve);
   });
 }
+
+export { getUserTeam };
