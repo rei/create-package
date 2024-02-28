@@ -1,5 +1,9 @@
 # Release Notes
 
+## 2.6.0
+
+- Updates Cedar versions in `.env`.
+
 ## 2.5.0
 
 - Looks up developer team id and scaffolds out trailmix.yaml file with the owner team id for vanilla and Vue components.
