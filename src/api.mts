@@ -134,7 +134,9 @@ async function install(PACKAGE_WORKING_DIR: string) {
 export async function createPackage({ answers }: { answers: Answer }) {
   // First, determine if we're creating a namespaced directory for the
   // package. If not, scaffold out the package contents directly in the cwd
-  const { namespacedDir = true, packageName, packageTemplate } = answers || {};
+  const {
+    namespacedDir = true, packageName, packageTemplate,
+  } = answers || {};
   const isMicrosite = packageTemplate === TemplateTypes.MICROSITE;
 
   logger.info(`Scaffolding a new ${isMicrosite ? 'microsite' : 'NPM package'}`);
@@ -148,25 +150,22 @@ export async function createPackage({ answers }: { answers: Answer }) {
   }
 
   logger.info(
-    `Creating ${
-      isMicrosite
-        ? `${packageTemplate}`
-        : `a new ${packageTemplate} in ${PACKAGE_WORKING_DIR}`
+    `Creating ${isMicrosite
+      ? `${packageTemplate}`
+      : `a new ${packageTemplate} in ${PACKAGE_WORKING_DIR}`
     }`,
   );
 
   // Walk the "common" templates, rendering them with data from {@link answers}
   // and the {@link CONFIG}, writing them to the appropriate directory based
   // on {@link packageInCWD}.
+
   await generate({
     walkPath: TemplatePaths.COMMON,
     packageWorkingDir: PACKAGE_WORKING_DIR,
     packageTemplate: TemplateTypes.COMMON,
-
-    data: {
-      ...CONFIG,
-      ...answers,
-    },
+    // eslint-disable-next-line
+    data: Object.assign({}, CONFIG, answers),
   });
 
   // Walk the chosen template path, rendering them with data from {@link answers}
@@ -185,12 +184,8 @@ export async function createPackage({ answers }: { answers: Answer }) {
       walkPath: TemplatePaths.VUE,
       packageTemplate,
       packageWorkingDir: PACKAGE_WORKING_DIR,
-      data: {
-        ...CONFIG,
-        ...answers,
-        kebabComponentName,
-        camelComponentName,
-      },
+      // eslint-disable-next-line
+      data: Object.assign({}, CONFIG, answers, kebabComponentName, camelComponentName),
     });
     await install(PACKAGE_WORKING_DIR);
     await runComponent(PACKAGE_WORKING_DIR);
@@ -199,10 +194,8 @@ export async function createPackage({ answers }: { answers: Answer }) {
       walkPath: TemplatePaths.VANILLA,
       packageTemplate,
       packageWorkingDir: PACKAGE_WORKING_DIR,
-      data: {
-        ...CONFIG,
-        ...answers,
-      },
+      // eslint-disable-next-line
+      data: Object.assign({}, CONFIG, answers),
     });
     await install(PACKAGE_WORKING_DIR);
   } else if (packageTemplate === TemplateTypes.MICROSITE) {
@@ -210,10 +203,8 @@ export async function createPackage({ answers }: { answers: Answer }) {
       walkPath: TemplatePaths.MICROSITE,
       packageTemplate,
       packageWorkingDir: PACKAGE_WORKING_DIR,
-      data: {
-        ...CONFIG,
-        ...answers,
-      },
+      // eslint-disable-next-line
+      data: Object.assign({}, CONFIG, answers),
     });
     await install(PACKAGE_WORKING_DIR);
   }

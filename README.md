@@ -86,6 +86,10 @@ The author of the NPM package we're initializing. Attempts to resolve the user's
 
 The type of template we're initializing. Defaults to `vue`.
 
+`-g, --datadog`
+
+Configure your application to be monitored by Datadog. This installs the [@rei/vite-plugin-datadog-rum](https://gitlab.com/rei/internal/product-engineering/alpine-fe/febs-3/vite-plugin-datadog-rum/-/wikis/home) plugin that creates an additional bundle that will be loaded on your application's page(s).
+
 `--no-dir`
 
 Using this option will tell the initializer to output to the current working directory, instead of creating a namespaced directory matching the package name.

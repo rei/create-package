@@ -39,12 +39,13 @@ program
     'package template',
     Defaults.PACKAGE_TEMPLATE,
   )
+  .option('--datadog', 'Configure application to be monitored by DataDog')
   .option('-o, --owner <package-owner-team-id>', 'Owner team id (from team.rei-cloud.com)', '')
   .option('--no-dir', 'Output to the current working directory')
   .action(async (answers) => {
     let { author } = answers;
     const {
-      name, desc, template, dir, owner,
+      name, desc, template, dir, owner, datadog,
     } = answers;
     if (!author) {
       author = await packageAuthor();
@@ -57,6 +58,7 @@ program
         packageOwnerTeamId: owner || await getUserTeam(),
         packageTemplate: validateTemplateOption(template),
         namespacedDir: dir,
+        packageUsesDataDog: datadog,
       },
     });
   });
