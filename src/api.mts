@@ -12,12 +12,13 @@ import { ComponentNames, Answer } from './types/index.mjs';
 
 const logger = LoggerFactory({ label: '/api' });
 const DIRNAME = path.dirname(fileURLToPath(import.meta.url));
-const TEMPLATE_DIR = path.resolve(DIRNAME, '../..', 'templates');
+const BASE_DIR = path.resolve(DIRNAME, '../..');
+const TEMPLATE_DIR = path.resolve(BASE_DIR, 'templates');
 
 // Overriding opening and closing tags as the Vue templates use {{ }}
 Mustache.tags = ['<%', '%>'];
 
-export const CONFIG = dotenv.config({ path: path.resolve(DIRNAME, '..', '.env') })?.parsed || {};
+export const CONFIG = dotenv.config({ path: path.resolve(BASE_DIR, '.env') })?.parsed || {};
 
 export const TemplatePaths = {
   COMMON: path.resolve(TEMPLATE_DIR, 'common'),
