@@ -59,7 +59,7 @@ export default async function interactive() {
       {
         type: 'confirm',
         name: 'packageUsesDataDog',
-        message: 'Do you want to configure your app to be monitored in Datadog? If so, check with SRE to confirm your applicationId and clientToken prior to deploying to production.',
+        message: 'Do you want to configure your app to be monitored in Datadog? If so, be sure to confirm your applicationId and clientToken with SRE prior to deploying to production.',
         default: Defaults.INCLUDE_DATADOG,
         when: (ans) => ans.packageTemplate === TemplateTypes.MICROSITE,
       },
