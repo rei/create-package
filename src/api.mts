@@ -12,7 +12,7 @@ import { ComponentNames, Answer } from './types/index.mjs';
 
 const logger = LoggerFactory({ label: '/api' });
 const DIRNAME = path.dirname(fileURLToPath(import.meta.url));
-const TEMPLATE_DIR = path.resolve(DIRNAME, '..', 'templates');
+const TEMPLATE_DIR = path.resolve(DIRNAME, '../..', 'templates');
 
 // Overriding opening and closing tags as the Vue templates use {{ }}
 Mustache.tags = ['<%', '%>'];
@@ -164,8 +164,7 @@ export async function createPackage({ answers }: { answers: Answer }) {
     walkPath: TemplatePaths.COMMON,
     packageWorkingDir: PACKAGE_WORKING_DIR,
     packageTemplate: TemplateTypes.COMMON,
-    // eslint-disable-next-line
-    data: Object.assign({}, CONFIG, answers),
+    data: { ...CONFIG, ...answers } as GenerateData,
   });
 
   // Walk the chosen template path, rendering them with data from {@link answers}
@@ -184,8 +183,10 @@ export async function createPackage({ answers }: { answers: Answer }) {
       walkPath: TemplatePaths.VUE,
       packageTemplate,
       packageWorkingDir: PACKAGE_WORKING_DIR,
-      // eslint-disable-next-line
-      data: Object.assign({}, CONFIG, answers, kebabComponentName, camelComponentName),
+
+      data: {
+        ...CONFIG, ...answers, kebabComponentName, camelComponentName,
+      } as GenerateData,
     });
     await install(PACKAGE_WORKING_DIR);
     await runComponent(PACKAGE_WORKING_DIR);
@@ -194,8 +195,8 @@ export async function createPackage({ answers }: { answers: Answer }) {
       walkPath: TemplatePaths.VANILLA,
       packageTemplate,
       packageWorkingDir: PACKAGE_WORKING_DIR,
-      // eslint-disable-next-line
-      data: Object.assign({}, CONFIG, answers),
+
+      data: { ...CONFIG, ...answers } as GenerateData,
     });
     await install(PACKAGE_WORKING_DIR);
   } else if (packageTemplate === TemplateTypes.MICROSITE) {
@@ -203,8 +204,7 @@ export async function createPackage({ answers }: { answers: Answer }) {
       walkPath: TemplatePaths.MICROSITE,
       packageTemplate,
       packageWorkingDir: PACKAGE_WORKING_DIR,
-      // eslint-disable-next-line
-      data: Object.assign({}, CONFIG, answers),
+      data: { ...CONFIG, ...answers } as GenerateData,
     });
     await install(PACKAGE_WORKING_DIR);
   }
