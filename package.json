@@ -11,8 +11,8 @@
   },
   "license": "UNLICENSED",
   "author": "REI",
-  "main": "dist/bin/main.mjs",
-  "bin": "dist/bin/main.mjs",
+  "main": "dist/src/bin/main.mjs",
+  "bin": "dist/src/bin/main.mjs",
   "files": [
     "dist",
     "src",
