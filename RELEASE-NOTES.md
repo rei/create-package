@@ -1,5 +1,12 @@
 # Release Notes
 
+## 2.7.0 - 2024/04/23
+
+- Add option include/configure the `@rei/vite-plugin-datadog-rum` plugin to generate additional bundle needed for Datadog monitoring.
+- Update dependencies
+- Get version from package.json
+- Update docs around scaffolding either JS or TS. Since we aren't backporting new features/fixes to the 1.x line as well as our team moving to TS, moving forward, we are strongly encouraging new code to be written in TS
+
 ## 2.6.0
 
 - Updates Cedar versions in `.env`.

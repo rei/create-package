@@ -18,6 +18,7 @@ export const Defaults = {
   PACKAGE_AUTHOR: 'REI',
   PACKAGE_NAMESPACE: true,
   PACKAGE_TEMPLATE: 'VUE', // Should map to TemplateTypes
+  INCLUDE_DATADOG: false,
 };
 
 /**

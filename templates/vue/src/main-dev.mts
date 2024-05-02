@@ -4,7 +4,7 @@
 import { createApp } from 'vue';
 
 /* Bring in component here */
-import '@rei/cedar/dist/reset.css';
+import '@rei/cedar/dist/cdr-reset.css';
 import '@rei/cedar/dist/cdr-fonts.css';
 import './style/vendor.scss';
 import DemoComponent from './DemoComponent.vue';

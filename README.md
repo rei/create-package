@@ -19,22 +19,12 @@ Be sure to update/install your hardshell token to allow the initializer to scaff
 ## Usage
 
 ```sh
-npx @rei/create-package@^1 #(JavaScript)
-```
-
-or
-
-```sh
-npx @rei/create-package@^2 #(TypeScript)
+npx @rei/create-package@latest
 ```
 
 <p align='center'>
 <img src='./rei-create-package.gif' alt='npx @rei/create-package' width="500">
 </p>
-
-## TypeScript and JavaScript versions
-
-The initializer can scaffold out either JavaScript or TypeScript code depending on the version you run the initializer with. If you don't specify the version, the initializer will default to the latest version, currently `2.^` (TypeScript).
 
 ## CLI
 
@@ -85,6 +75,10 @@ The author of the NPM package we're initializing. Attempts to resolve the user's
 `-t, --template [vue|vanilla|microsite]`
 
 The type of template we're initializing. Defaults to `vue`.
+
+`-dd, --datadog`
+
+Configure your application to be monitored by Datadog. This installs the [@rei/vite-plugin-datadog-rum](https://gitlab.com/rei/internal/product-engineering/alpine-fe/febs-3/vite-plugin-datadog-rum/-/wikis/home) plugin that creates an additional bundle that will be loaded on your application's page(s).
 
 `--no-dir`
 

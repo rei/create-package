@@ -11,7 +11,9 @@
     "node": true,
     "jest": true
   },
-  "plugins": ["@typescript-eslint"],
+  "plugins": [
+    "@typescript-eslint"
+  ],
   "extends": [
     "eslint:recommended",
     "plugin:@typescript-eslint/recommended",
@@ -22,7 +24,12 @@
     "import/no-extraneous-dependencies": "off",
     "import/extensions": "off",
     "import/no-unresolved": "off",
-    "no-undef": "off"    
+    "no-undef": "off"
   },
-  "ignorePatterns": ["dist", "types", "vitest.config.mts", "templates"]
+  "ignorePatterns": [
+    "dist",
+    "types",
+    "vitest.config.mts",
+    "templates"
+  ]
 }

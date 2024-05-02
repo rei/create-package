@@ -58,6 +58,13 @@ export default async function interactive() {
       },
       {
         type: 'confirm',
+        name: 'packageUsesDataDog',
+        message: 'Do you want to configure your app to be monitored in Datadog? If so, be sure to confirm your applicationId and clientToken with SRE prior to deploying to production.',
+        default: Defaults.INCLUDE_DATADOG,
+        when: (ans) => ans.packageTemplate === TemplateTypes.MICROSITE,
+      },
+      {
+        type: 'confirm',
         name: 'namespacedDir',
         message:
           'Should we create a namespaced directory for this package? If no, files will output to the CWD. (Select "n" for microsite)',

@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 import { Command } from 'commander';
+import packageJson from '../../package.json' assert { type: 'json' };
 import interactive from './interactive.mjs';
 import {
   Defaults,
@@ -16,7 +17,7 @@ const program = new Command();
 program
   .name('create-package')
   .description('An NPM initializer that scaffolds new NPM packages')
-  .version('2.5.0');
+  .version(packageJson.version);
 
 program
   .command('interactive')
@@ -39,12 +40,13 @@ program
     'package template',
     Defaults.PACKAGE_TEMPLATE,
   )
+  .option('-dd, --datadog', 'Configure application to be monitored by DataDog', Defaults.INCLUDE_DATADOG)
   .option('-o, --owner <package-owner-team-id>', 'Owner team id (from team.rei-cloud.com)', '')
   .option('--no-dir', 'Output to the current working directory')
   .action(async (answers) => {
     let { author } = answers;
     const {
-      name, desc, template, dir, owner,
+      name, desc, template, dir, owner, datadog,
     } = answers;
     if (!author) {
       author = await packageAuthor();
@@ -57,6 +59,7 @@ program
         packageOwnerTeamId: owner || await getUserTeam(),
         packageTemplate: validateTemplateOption(template),
         namespacedDir: dir,
+        packageUsesDataDog: datadog,
       },
     });
   });

@@ -1,6 +1,6 @@
 {
   "name": "@rei/create-package",
-  "version": "2.6.0",
+  "version": "2.7.0",
   "description": "An NPM initializer that scaffolds new NPM packages",
   "bugs": {
     "url": "https://github.com/rei/create-package/issues"
@@ -11,8 +11,8 @@
   },
   "license": "UNLICENSED",
   "author": "REI",
-  "main": "dist/bin/main.mjs",
-  "bin": "dist/bin/main.mjs",
+  "main": "dist/src/bin/main.mjs",
+  "bin": "dist/src/bin/main.mjs",
   "files": [
     "dist",
     "src",
@@ -33,29 +33,29 @@
   },
   "dependencies": {
     "@root/walk": "^1.1.0",
-    "@types/inquirer": "^9.0.3",
-    "@types/mocha": "^10.0.2",
-    "@types/node": "^20.8.2",
-    "commander": "^10.0.0",
-    "dotenv": "^16.0.3",
+    "commander": "^12.0.0",
+    "dotenv": "^16.4.5",
     "git-user-info": "^2.0.3",
-    "inquirer": "^9.1.4",
-    "minimist": "^1.2.7",
+    "inquirer": "^9.2.19",
+    "minimist": "^1.2.8",
     "mustache": "^4.2.0",
-    "vitest": "^0.34.6",
-    "winston": "^3.8.2"
+    "winston": "^3.13.0"
   },
   "devDependencies": {
+    "@types/inquirer": "^9.0.7",
+    "@types/mocha": "^10.0.6",
     "@types/mustache": "^4.2.3",
-    "@typescript-eslint/eslint-plugin": "^6.7.4",
-    "@typescript-eslint/parser": "^6.7.4",
-    "@vitest/coverage-v8": "^0.34.6",
-    "eslint": "^8.50.0",
+    "@types/node": "^20.12.7",
+    "@typescript-eslint/eslint-plugin": "^7.7.1",
+    "@typescript-eslint/parser": "^7.7.1",
+    "@vitest/coverage-v8": "^1.5.0",
+    "eslint": "^8.57.0",
     "eslint-config-airbnb-base": "^15.0.0",
-    "eslint-config-airbnb-typescript": "^17.1.0",
-    "eslint-plugin-import": "^2.26.0",
-    "eslint-plugin-vue": "^9.17.0",
+    "eslint-config-airbnb-typescript": "^18.0.0",
+    "eslint-plugin-import": "^2.29.1",
+    "eslint-plugin-vue": "^9.25.0",
     "rimraf": "^5.0.5",
-    "typescript": "^5.2.2"
+    "typescript": "^5.4.5",
+    "vitest": "^1.5.0"
   }
 }

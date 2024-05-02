@@ -31,7 +31,6 @@
     "@rei/cdr-component-variables": "<%&CEDAR_COMPONENT_VARIABLES_VERSION%>",
     "@rei/cdr-tokens": "<%&CEDAR_TOKENS_VERSION%>",
     "@rei/cedar": "<%&CEDAR_VERSION%>",
-    "@rei/climber-details-page": "<%&CDP_VERSION%>",
     "@rei/metrics": "<%&REI_METRICS_VERSION%>",
     "@rei/ssr": "<%&REI_SSR_VERSION%>",
     "@rei/vite-base-config": "<%&VITE_BASE_CONFIG_VERSION%>",
@@ -40,6 +39,9 @@
     "vue": "<%&VUE_VERSION%>"
   },
   "devDependencies": {
+    <%#packageUsesDataDog%>
+    "@rei/vite-plugin-datadog-rum": "<%&VITE_PLUGIN_DATADOG_VERSION%>",
+    <%/packageUsesDataDog%>
     "@typescript-eslint/eslint-plugin": "^6.7.2",
     "@typescript-eslint/parser": "^6.7.2",
     "@vitest/coverage-v8": "<%&VITEST_COVERAGE_VERSION%>",
