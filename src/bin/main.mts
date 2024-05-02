@@ -40,7 +40,7 @@ program
     'package template',
     Defaults.PACKAGE_TEMPLATE,
   )
-  .option('--datadog', 'Configure application to be monitored by DataDog', Defaults.INCLUDE_DATADOG)
+  .option('-dd, --datadog', 'Configure application to be monitored by DataDog', Defaults.INCLUDE_DATADOG)
   .option('-o, --owner <package-owner-team-id>', 'Owner team id (from team.rei-cloud.com)', '')
   .option('--no-dir', 'Output to the current working directory')
   .action(async (answers) => {

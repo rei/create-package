@@ -12,7 +12,7 @@ export interface Answer {
   packageTemplate: string;
   namespacedDir: string;
   packageOwnerTeamId: string;
-  packageUsesDataDog: true;
+  packageUsesDataDog: boolean;
 }
 
 /* c8 ignore end */
