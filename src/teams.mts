@@ -6,26 +6,21 @@ const logger = LoggerFactory();
 const teamsUrl = 'https://team.rei-cloud.com/rs/teams';
 
 interface Team {
-  id: string,
+  id: string;
   members: {
-    name: string,
-    userId: string,
-  }[]
+    name: string;
+    userId: string;
+  }[];
 }
 
-const getTeam = (
-  userId: string,
-  teamsArray: Team[],
-) => teamsArray
-  .find(
-    (team: Team) => team.members
-      .find(
-        (member) => member.userId === userId,
-      ),
+const getTeam = (userId: string, teamsArray: Team[]) =>
+  teamsArray.find((team: Team) =>
+    team.members.find((member) => member.userId === userId),
   )?.id;
 
 /* c8 ignore start */
-const getHardshellToken = async () => readFile(`${homedir()}/hardshell.jwt`, 'utf-8');
+const getHardshellToken = async () =>
+  readFile(`${homedir()}/hardshell.jwt`, 'utf-8');
 
 const getAllTeams = async () => {
   const headers = new Headers();
@@ -39,7 +34,10 @@ const getAllTeams = async () => {
 const getUserName = () => userInfo().username;
 /* c8 ignore end */
 
-export default async (getAllTeamsFn = getAllTeams, getUserNameFn = getUserName) => {
+export default async (
+  getAllTeamsFn = getAllTeams,
+  getUserNameFn = getUserName,
+) => {
   try {
     const userName = getUserNameFn();
     const allTeams = await getAllTeamsFn();
@@ -51,7 +49,10 @@ export default async (getAllTeamsFn = getAllTeams, getUserNameFn = getUserName) 
     logger.warn(`User ${userName} is not associated with any team.`);
     return '';
   } catch (e) {
-    logger.warn('Unable to get user team id. Ensure you are connected to VPN and have an updated hardshell token (hardshell.jwt in home directory).', e);
+    logger.warn(
+      'Unable to get user team id. Ensure you are connected to VPN and have an updated hardshell token (hardshell.jwt in home directory).',
+      e,
+    );
     return '';
   }
 };

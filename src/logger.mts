@@ -1,6 +1,4 @@
-import {
-  transports, format, createLogger, Logger,
-} from 'winston';
+import { transports, format, createLogger, Logger } from 'winston';
 
 /**
  * Logger factory using 'winston'
@@ -18,7 +16,8 @@ export default function LoggerFactory({
       }),
       format.label({ label: `@rei/create-package${label}` }),
       format.printf(
-        (info) => `[${info.label}] ${info.level} ${info.timestamp}: ${info.message}`,
+        (info) =>
+          `[${info.label}] ${info.level} ${info.timestamp}: ${info.message}`,
       ),
     ),
     transports: trans,

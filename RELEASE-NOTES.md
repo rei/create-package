@@ -1,10 +1,21 @@
 # Release Notes
 
+## 3.0.0
+
+- Bumps dependencies for `@rei/create-package`
+- Upgrades Vite 5 and bumps associated dependencies for all initializer templates
+- Replaces import assertion with readFile/Parse JSON option to avoid warning and potential breakage in the future
+- Removes `eslint` and associated config and dependencies
+- Adds `lint-staged` to handle formatting staged files with prettier.
+- Adds pre-commit hook via `husky` to verify changes and execute `lint-staged`
+- Adds GitHub actions work-flow to build and test the initializer with changes
+- Adds end-to-end (e2e) tests that can be manually executed (`npm run test:e2e`) to ensure each template is properly scaffolded, installed, and built without error.
+
 ## 2.7.0 - 2024/04/23
 
 - Add option include/configure the `@rei/vite-plugin-datadog-rum` plugin to generate additional bundle needed for Datadog monitoring.
 - Update dependencies
-- Get version from package.json
+- Get the version from package.json
 - Update docs around scaffolding either JS or TS. Since we aren't backporting new features/fixes to the 1.x line as well as our team moving to TS, moving forward, we are strongly encouraging new code to be written in TS
 
 ## 2.6.0

@@ -1,5 +1,5 @@
-import { expect } from 'vitest';
-import * as api from './api.mjs';
+import { expect, describe, it } from 'vitest';
+import * as api from '../api.mjs';
 
 describe('API methods', () => {
   it('should exist', () => {

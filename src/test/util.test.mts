@@ -1,5 +1,6 @@
-import { expect, vi } from 'vitest';
-import * as api from './util.mjs';
+import { expect, vi, describe, it } from 'vitest';
+import * as api from '../util.mjs';
+import { TemplateType } from '../types/index.mjs';
 
 vi.mock('git-user-info', async (o) => {
   const mod: object = await o();
@@ -66,7 +67,9 @@ describe('validateTemplateOption', () => {
   it('should return valid template types', async () => {
     const types = ['VUE', 'VANILLA', 'MICROSITE', 'COMMON'];
     types.forEach((type) => {
-      expect(api.validateTemplateOption(type)).equals(api.TemplateTypes[type]);
+      expect(api.validateTemplateOption(type)).equals(
+        api.TemplateTypes[type as keyof TemplateType],
+      );
     });
   });
 });
