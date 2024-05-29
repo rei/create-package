@@ -12,13 +12,14 @@ import { ComponentNames, Answer } from './types/index.mjs';
 
 const logger = LoggerFactory({ label: '/api' });
 const DIRNAME = path.dirname(fileURLToPath(import.meta.url));
-const BASE_DIR = path.resolve(DIRNAME, '../..');
+const BASE_DIR = path.resolve(DIRNAME, '../');
 const TEMPLATE_DIR = path.resolve(BASE_DIR, 'templates');
 
 // Overriding opening and closing tags as the Vue templates use {{ }}
 Mustache.tags = ['<%', '%>'];
 
-export const CONFIG = dotenv.config({ path: path.resolve(BASE_DIR, '.env') })?.parsed || {};
+export const CONFIG =
+  dotenv.config({ path: path.resolve(BASE_DIR, '.env') })?.parsed || {};
 
 export const TemplatePaths = {
   COMMON: path.resolve(TEMPLATE_DIR, 'common'),
@@ -132,12 +133,18 @@ async function install(PACKAGE_WORKING_DIR: string) {
  *
  * @param {*} param0
  */
-export async function createPackage({ answers }: { answers: Answer }) {
+export async function createPackage({
+  answers,
+  isInstall = true,
+  isRun = true,
+}: {
+  answers: Answer;
+  isInstall?: boolean;
+  isRun?: boolean;
+}) {
   // First, determine if we're creating a namespaced directory for the
   // package. If not, scaffold out the package contents directly in the cwd
-  const {
-    namespacedDir = true, packageName, packageTemplate,
-  } = answers || {};
+  const { namespacedDir = true, packageName, packageTemplate } = answers || {};
   const isMicrosite = packageTemplate === TemplateTypes.MICROSITE;
 
   logger.info(`Scaffolding a new ${isMicrosite ? 'microsite' : 'NPM package'}`);
@@ -151,9 +158,10 @@ export async function createPackage({ answers }: { answers: Answer }) {
   }
 
   logger.info(
-    `Creating ${isMicrosite
-      ? `${packageTemplate}`
-      : `a new ${packageTemplate} in ${PACKAGE_WORKING_DIR}`
+    `Creating ${
+      isMicrosite
+        ? `${packageTemplate}`
+        : `a new ${packageTemplate} in ${PACKAGE_WORKING_DIR}`
     }`,
   );
 
@@ -186,11 +194,18 @@ export async function createPackage({ answers }: { answers: Answer }) {
       packageWorkingDir: PACKAGE_WORKING_DIR,
 
       data: {
-        ...CONFIG, ...answers, kebabComponentName, camelComponentName,
+        ...CONFIG,
+        ...answers,
+        kebabComponentName,
+        camelComponentName,
       } as GenerateData,
     });
-    await install(PACKAGE_WORKING_DIR);
-    await runComponent(PACKAGE_WORKING_DIR);
+    if (isInstall) {
+      await install(PACKAGE_WORKING_DIR);
+    }
+    if (isRun) {
+      await runComponent(PACKAGE_WORKING_DIR);
+    }
   } else if (packageTemplate === TemplateTypes.VANILLA) {
     await generate({
       walkPath: TemplatePaths.VANILLA,
@@ -199,7 +214,9 @@ export async function createPackage({ answers }: { answers: Answer }) {
 
       data: { ...CONFIG, ...answers } as GenerateData,
     });
-    await install(PACKAGE_WORKING_DIR);
+    if (isInstall) {
+      await install(PACKAGE_WORKING_DIR);
+    }
   } else if (packageTemplate === TemplateTypes.MICROSITE) {
     await generate({
       walkPath: TemplatePaths.MICROSITE,
@@ -207,6 +224,8 @@ export async function createPackage({ answers }: { answers: Answer }) {
       packageWorkingDir: PACKAGE_WORKING_DIR,
       data: { ...CONFIG, ...answers } as GenerateData,
     });
-    await install(PACKAGE_WORKING_DIR);
+    if (isInstall) {
+      await install(PACKAGE_WORKING_DIR);
+    }
   }
 }

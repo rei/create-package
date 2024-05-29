@@ -1,11 +1,11 @@
 export interface Item {
-  name: string,
-  description?: string,
+  name: string;
+  description?: string;
 }
 
 export interface Product extends Item {
-  sku: string,
-  price: number,
+  sku: string;
+  price: number;
 }
 
 /**
@@ -29,7 +29,7 @@ export function getTotal(products: Product[]) {
 /**
  * Returns formatted USD currency value.
  */
-export function getFormattedTotal(products:Product[]) {
+export function getFormattedTotal(products: Product[]) {
   const format = getUSDFormatter();
   return format(getTotal(products));
 }
@@ -60,6 +60,12 @@ export function getMaxPriceItem(products: Product[]) {
 /**
  * startsWith polyfill
  */
-export function startsWith(str: string, searchString: string, position: number = 0) {
-  return str.substring(position, position + searchString.length) === searchString;
+export function startsWith(
+  str: string,
+  searchString: string,
+  position: number = 0,
+) {
+  return (
+    str.substring(position, position + searchString.length) === searchString
+  );
 }

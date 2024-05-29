@@ -1,6 +1,6 @@
 {
   "name": "@rei/create-package",
-  "version": "2.7.0",
+  "version": "3.0.0",
   "description": "An NPM initializer that scaffolds new NPM packages",
   "bugs": {
     "url": "https://github.com/rei/create-package/issues"
@@ -11,8 +11,8 @@
   },
   "license": "UNLICENSED",
   "author": "REI",
-  "main": "dist/src/bin/main.mjs",
-  "bin": "dist/src/bin/main.mjs",
+  "main": "dist/bin/main.mjs",
+  "bin": "dist/bin/main.mjs",
   "files": [
     "dist",
     "src",
@@ -22,40 +22,44 @@
     ".env"
   ],
   "scripts": {
-    "build": "npm run prepare",
-    "build-only": "npm run clean && tsc",
+    "build": "npm run clean && tsc",
     "clean": "rimraf ./dist",
-    "lint": "eslint --ext .mts,.vue,.cjs .",
-    "prepare": "npm run type-check && npm run lint && npm run test && npm run clean && tsc",
+    "format": "prettier --write --single-quote",
+    "lint-staged": "lint-staged",
+    "prepare": "husky",
+    "prepublishOnly": "npm run test && npm run build",
     "test": "npm run unit -- --coverage",
-    "type-check": "tsc --noEmit",
+    "test:e2e": "vitest run --config vitest.config.e2e.mts",
     "unit": "vitest run"
+  },
+  "lint-staged": {
+    "*.{ts,mts,json,md,yml}": [
+      "npm run format"
+    ]
   },
   "dependencies": {
     "@root/walk": "^1.1.0",
-    "commander": "^12.0.0",
+    "commander": "^12.1.0",
     "dotenv": "^16.4.5",
     "git-user-info": "^2.0.3",
-    "inquirer": "^9.2.19",
+    "inquirer": "^9.2.22",
     "minimist": "^1.2.8",
     "mustache": "^4.2.0",
     "winston": "^3.13.0"
   },
   "devDependencies": {
     "@types/inquirer": "^9.0.7",
-    "@types/mocha": "^10.0.6",
-    "@types/mustache": "^4.2.3",
-    "@types/node": "^20.12.7",
-    "@typescript-eslint/eslint-plugin": "^7.7.1",
-    "@typescript-eslint/parser": "^7.7.1",
-    "@vitest/coverage-v8": "^1.5.0",
-    "eslint": "^8.57.0",
-    "eslint-config-airbnb-base": "^15.0.0",
-    "eslint-config-airbnb-typescript": "^18.0.0",
-    "eslint-plugin-import": "^2.29.1",
-    "eslint-plugin-vue": "^9.25.0",
-    "rimraf": "^5.0.5",
+    "@types/mustache": "^4.2.5",
+    "@types/node": "^20.12.12",
+    "@vitest/coverage-v8": "^1.6.0",
+    "husky": "^9.0.11",
+    "lint-staged": "^15.2.4",
+    "prettier": "^3.2.5",
+    "rimraf": "^5.0.7",
     "typescript": "^5.4.5",
-    "vitest": "^1.5.0"
+    "vitest": "^1.6.0"
+  },
+  "engines": {
+    "node": ">=18"
   }
 }

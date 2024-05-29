@@ -1,11 +1,18 @@
-import { exec } from 'child_process';
+import { exec } from 'node:child_process';
 import { getGitUserInfo } from 'git-user-info';
+import { readFile } from 'node:fs/promises';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
 import LoggerFactory from './logger.mjs';
 import getUserTeam from './teams.mjs';
+import type { TemplateType } from './types/index.mjs';
+
+const DIRNAME = path.dirname(fileURLToPath(import.meta.url));
+const BASE_DIR = path.resolve(DIRNAME, '..');
 
 const logger = LoggerFactory({ label: '/util' });
 
-export const TemplateTypes: { [type: string]: string } = {
+export const TemplateTypes: TemplateType = {
   VUE: 'Vue 3 component',
   VANILLA: 'Vanilla TypeScript library',
   MICROSITE: 'Microsite front-end code (QuickStart)',
@@ -22,6 +29,18 @@ export const Defaults = {
 };
 
 /**
+ * Gets the version of `@rei/create-package`.
+ */
+export async function getInitializerVersion() {
+  const packageJson = await readFile(
+    path.resolve(BASE_DIR, 'package.json'),
+    'utf8',
+  );
+  const packageData = JSON.parse(packageJson);
+  return packageData.version;
+}
+
+/**
  *
  * @param val
  * @returns
@@ -35,8 +54,11 @@ export function packageNameFilter(val: string) {
 }
 
 export function validateTemplateOption(templateChoice: string) {
-  const allowedTemplates = Object.keys(TemplateTypes).map((key) => key.toLowerCase());
-  const templateType = TemplateTypes[templateChoice.toUpperCase()];
+  const allowedTemplates = Object.keys(TemplateTypes).map((key) =>
+    key.toLowerCase(),
+  );
+  const templateType =
+    TemplateTypes[templateChoice.toUpperCase() as keyof TemplateType];
   if (templateType) {
     return templateType;
   }
@@ -59,13 +81,13 @@ export async function packageAuthor() {
   return Defaults.PACKAGE_AUTHOR;
 }
 
-export async function run(cmd: string) {
-  const child = exec(cmd, (err) => {
+export async function run(cmd: string, cwd?: string) {
+  const child = exec(cmd, cwd ? { cwd } : {}, (err) => {
     if (err) logger.error(err);
   });
   child.stderr?.pipe(process.stderr);
   child.stdout?.pipe(process.stdout);
-  await new Promise((resolve) => {
+  return new Promise((resolve) => {
     child.on('close', resolve);
   });
 }

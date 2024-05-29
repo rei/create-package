@@ -41,7 +41,8 @@ export default async function interactive() {
       {
         type: 'input',
         name: 'packageOwnerTeamId',
-        message: 'What team will own this package? (See team.rei-cloud.com for your team id)',
+        message:
+          'What team will own this package? (See team.rei-cloud.com for your team id)',
         validate: (teamId) => (teamId ? true : 'Please enter a valid team id.'),
         default: async () => getUserTeam(),
       },
@@ -59,7 +60,8 @@ export default async function interactive() {
       {
         type: 'confirm',
         name: 'packageUsesDataDog',
-        message: 'Do you want to configure your app to be monitored in Datadog? If so, be sure to confirm your applicationId and clientToken with SRE prior to deploying to production.',
+        message:
+          'Do you want to configure your app to be monitored in Datadog? If so, be sure to confirm your applicationId and clientToken with SRE prior to deploying to production.',
         default: Defaults.INCLUDE_DATADOG,
         when: (ans) => ans.packageTemplate === TemplateTypes.MICROSITE,
       },
