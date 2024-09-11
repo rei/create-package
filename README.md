@@ -86,7 +86,7 @@ Using this option will tell the initializer to output to the current working dir
 
 ## Anatomy
 
-`@rei/create-package` is an [NPM initializer](https://docs.npmjs.com/cli/v9/commands/npm-init) written in Node.js.
+`@rei/create-package` is an [NPM initializer](https://docs.npmjs.com/cli/v9/commands/npm-init) written with Node.js.
 
 Its mechanics are written to be agnostic of any particular technology's generator. Meaning it doesn't rely on [Vue CLI](https://cli.vuejs.org/) or anything similar.
 
