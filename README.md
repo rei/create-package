@@ -1,5 +1,10 @@
 # Create package
 
+> ⚠️ **Deprecation Notice**
+>
+> This package is **deprecated** and will no longer receive updates or support.
+>
+
 The officially supported way to create NPM packages at [REI](https://www.rei.com/).
 
 With `@rei/create-package`, you can quickly scaffold:
